@@ -1,0 +1,19 @@
+{
+  "name": "comptox.ai",
+  "version": "1.0.0",
+  "description": "Main website for ComptoxAI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdromano2/comptox.ai.git"
+  },
+  "author": "Joseph D. Romano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdromano2/comptox.ai/issues"
+  },
+  "homepage": "https://github.com/jdromano2/comptox.ai#readme"
+}
