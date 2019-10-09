@@ -16,8 +16,21 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
+.navbar-brand {
+    padding-bottom: 7px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #226b07;
+}
+
 .wrap {
     min-height: 85%;
+}
+
+.fa-2x {
+    font-size: 2em;
+    color: #226b07;
 }
 
 #logo {
