@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Graph representation of the ComptoxAI knowledge base (Graph) &mdash; ComptoxAI v0.1.0a Manual</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
+    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" >
+    <link rel="search" title="Search" href="search.html" >
+    <link rel="top" title="ComptoxAI v0.1.0a Manual" href="index.html" >
+    <link rel="next" title="Representation of an Adverse Outcome Pathway (AOP)" href="aop.html" >
+    <link rel="prev" title="The ComptoxAI Ontology (ComptoxOntology)" href="ontology.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+        <li class="active"><a href="https://comptox.ai/">comptox.ai</a></li>
+        <li class="active"><a href="https://comptox.ai/doc">Docs</a></li>
+	
+        <li class="active"><a href="index.html">ComptoxAI v0.1.0a Manual</a></li>
+	 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="aop.html" title="Representation of an Adverse Outcome Pathway (AOP)"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="ontology.html" title="The ComptoxAI Ontology (ComptoxOntology)"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ontology.html"
+                        title="previous chapter">The ComptoxAI Ontology (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxOntology</span></code>)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="aop.html"
+                        title="next chapter">Representation of an Adverse Outcome Pathway (<code class="xref py py-class docutils literal notranslate"><span class="pre">AOP</span></code>)</a></p>
+  <h3>This Page</h3>
+  <div>
+    <a href="_sources/graph.rst.txt"
+       rel="nofollow">Show Source</a>
+  </div>
+<div class="this-page-menu">
+  <a href="/scipy/docs/scipy-docs/graph.rst.rst">Edit page</a>
+</div>
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="module-comptox_ai.graph">
+<span id="graph-representation-of-the-comptoxai-knowledge-base-graph"></span><span id="graph"></span><h1>Graph representation of the ComptoxAI knowledge base (<code class="xref py py-class docutils literal notranslate"><span class="pre">Graph</span></code>)<a class="headerlink" href="#module-comptox_ai.graph" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="comptox_ai.graph.Graph">
+<em class="property">class </em><code class="sig-prename descclassname">comptox_ai.graph.</code><code class="sig-name descname">Graph</code><span class="sig-paren">(</span><em class="sig-param">driver</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for a knowledge graph used in ComptoxAI.</p>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.aop_shortest_path" title="comptox_ai.graph.Graph.aop_shortest_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">aop_shortest_path</span></code></a>(self, mie_node, ao_node)</p></td>
+<td><p>Find the shortest path between an MIE and an adverse outcome using the Neo4j representation of the CO’s knowledge base.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.build_adjacency_matrix" title="comptox_ai.graph.Graph.build_adjacency_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_adjacency_matrix</span></code></a>(self[, sparse])</p></td>
+<td><p>Construct an adjacency matrix of individuals in the ontology graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.build_incidence_matrix" title="comptox_ai.graph.Graph.build_incidence_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">build_incidence_matrix</span></code></a>(self[, sparse])</p></td>
+<td><p>Construct an incidence matrix of individuals in the ontology graph.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.close_connection" title="comptox_ai.graph.Graph.close_connection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close_connection</span></code></a>(self)</p></td>
+<td><p>Manually close the driver linking <cite>self.graph</cite> to a Neo4j graph database.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.fetch_neighbors_by_uri" title="comptox_ai.graph.Graph.fetch_neighbors_by_uri"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_neighbors_by_uri</span></code></a>(self, uri)</p></td>
+<td><p>Fetch nodes corresponding to neighbors of a node represented by a given URI.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.fetch_node_by_uri" title="comptox_ai.graph.Graph.fetch_node_by_uri"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_node_by_uri</span></code></a>(self, uri)</p></td>
+<td><p>Retrieve a node from Neo4j matching the given URI.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.fetch_nodes_by_label" title="comptox_ai.graph.Graph.fetch_nodes_by_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_nodes_by_label</span></code></a>(self, label)</p></td>
+<td><p>Fetch all nodes of a given label from the graph.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.fetch_ontology_class_labels" title="comptox_ai.graph.Graph.fetch_ontology_class_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_ontology_class_labels</span></code></a>(self[, …])</p></td>
+<td><p>Get all classes from the Comptox AI that are present in the graph database.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.get_node_degrees" title="comptox_ai.graph.Graph.get_node_degrees"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_node_degrees</span></code></a>(self[, node_type])</p></td>
+<td><p>Retrieve a list of URIs and their corresponding degrees.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.open_connection" title="comptox_ai.graph.Graph.open_connection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">open_connection</span></code></a>(self, username, password[, uri])</p></td>
+<td><p>Manually establish a connection between <cite>self.graph</cite> and a Neo4j graph database.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.page_rank" title="comptox_ai.graph.Graph.page_rank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">page_rank</span></code></a>(self[, node_type])</p></td>
+<td><p>Compute page rank of all owl__NamedIndividual nodes in the attached graph.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.run_query_in_session" title="comptox_ai.graph.Graph.run_query_in_session"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_query_in_session</span></code></a>(self, query)</p></td>
+<td><p>Submit a cypher query transaction to the connected graph database driver and return the response to the calling function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.to_networkx_graph" title="comptox_ai.graph.Graph.to_networkx_graph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_networkx_graph</span></code></a>(self)</p></td>
+<td><p>Construct a NetworkX graph object from the data in the connected Neo4j graph database.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 60%" />
+<col style="width: 40%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>test_driver</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><strong>to_graphml</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">driver</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a ComptoxAI knowledge graph supported by a Neo4j
+graph database instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.aop_shortest_path">
+<code class="sig-name descname">aop_shortest_path</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mie_node: str</em>, <em class="sig-param">ao_node: str</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.aop_shortest_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the shortest path between an MIE and an adverse
+outcome using the Neo4j representation of the CO’s knowledge
+base.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mie_node</strong><span class="classifier">string</span></dt><dd><p>Name of the MIE</p>
+</dd>
+<dt><strong>ao_node</strong><span class="classifier">string</span></dt><dd><p>Name of the adverse outcome</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.build_adjacency_matrix">
+<code class="sig-name descname">build_adjacency_matrix</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">sparse=True</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.build_adjacency_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct an adjacency matrix of individuals in the
+ontology graph.</p>
+<p>The adjacency matrix is a square matrix where each row and
+each column corresponds to one of the nodes in the graph. The
+value of cell $(i,j)$ is 1 if a directed edge goes from
+$       extrm{Node}_i$ to $     extrm{Node}_j$, and is $-1$ if an edge
+goes from $     extrm{Node}_j$ to $     extrm{Node}_i$.</p>
+<p>In the case of an undirected graph, the adjacency matrix is
+symmetric.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>sparse</strong><span class="classifier">bool (default: <cite>True</cite>)</span></dt><dd><p>Whether to return the value as a Scipy sparse matrix
+(default behavior) or a dense Numpy <cite>ndarray</cite>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.build_incidence_matrix">
+<code class="sig-name descname">build_incidence_matrix</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">sparse=True</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.build_incidence_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct an incidence matrix of individuals in the
+ontology graph.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.close_connection">
+<code class="sig-name descname">close_connection</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.close_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manually close the driver linking <cite>self.graph</cite> to a Neo4j
+graph database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.fetch_neighbors_by_uri">
+<code class="sig-name descname">fetch_neighbors_by_uri</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">uri</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.fetch_neighbors_by_uri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch nodes corresponding to neighbors of a node represented by a
+given URI.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.fetch_node_by_uri">
+<code class="sig-name descname">fetch_node_by_uri</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">uri</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.fetch_node_by_uri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a node from Neo4j matching the given URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>uri</strong><span class="classifier">str</span></dt><dd><p>URI of the node to fetch.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>neo4j.Record</dt><dd><p>Node corresponding to the provided URI.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.fetch_nodes_by_label">
+<code class="sig-name descname">fetch_nodes_by_label</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">label</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.fetch_nodes_by_label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch all nodes of a given label from the graph.</p>
+<p>The returned object is a list of Neo4j <cite>Record`s, each
+containing a node `n</cite> that has the queried label. Note that
+Neo4j allows multiple labels per node, so other labels may be
+present in the query results as well.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>label: string</strong></dt><dd><p>Ontology class name corresponding to
+the type of node desired</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.fetch_ontology_class_labels">
+<code class="sig-name descname">fetch_ontology_class_labels</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">populated_only=True</em>, <em class="sig-param">include_counts=True</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.fetch_ontology_class_labels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all classes from the Comptox AI that are present in the graph
+database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>populated_only</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to only include classes that have 1 or more named
+individual, by default True.</p>
+</dd>
+<dt><strong>include_counts</strong><span class="classifier">bool, optional</span></dt><dd><p>Whether to include counts for each label, by default True. If
+False, the return value will be a list rather than dict.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>list or dict</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.get_node_degrees">
+<code class="sig-name descname">get_node_degrees</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">node_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.get_node_degrees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a list of URIs and their corresponding degrees.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>node_type</strong><span class="classifier">str, optional</span></dt><dd><p>Ontology class corresponding to the desired node type, by default
+None.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>list of (str, int)</dt><dd><p>Each returned element is a tuple containing a node’s URI and that
+node’s degree.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.open_connection">
+<code class="sig-name descname">open_connection</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">username</em>, <em class="sig-param">password</em>, <em class="sig-param">uri='bolt://localhost:7687'</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.open_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manually establish a connection between <cite>self.graph</cite> and a
+Neo4j graph database.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.page_rank">
+<code class="sig-name descname">page_rank</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">node_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.page_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute page rank of all owl__NamedIndividual nodes in the attached
+graph.</p>
+<p>Page rank uses eigenvector centrality to determine “importance” of
+individual nodes based on the centrality of immediate neighbors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>node_type</strong><span class="classifier">str, optional</span></dt><dd><p>Ontology class of desired nodes. Page rank will be computed over
+all node types, but only the desired type will be returned to the
+user. If None, no filtering will be performed.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>list of tuple</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.run_query_in_session">
+<code class="sig-name descname">run_query_in_session</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">query</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.run_query_in_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit a cypher query transaction to the connected graph database
+driver and return the response to the calling function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>query</strong><span class="classifier">str</span></dt><dd><p>String representation of the cypher query to be executed.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>list of neo4j.Record</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="comptox_ai.graph.Graph.to_networkx_graph">
+<code class="sig-name descname">to_networkx_graph</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.to_networkx_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a NetworkX graph object from the data in the
+connected Neo4j graph database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>networkx.graph</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright .
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.0.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

@@ -4,11 +4,33 @@ body {
     margin: 0;
 }
 
+header {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .wrap {
     min-height: 85%;
+}
+
+#logo {
+    color: #226b07;
+    font-weight: 600;
 }
 
 #main-content {
     overflow: auto;
     padding-bottom: 100px;
+}
+
+#page-content {
+    padding-top: 100px;
+    overflow: auto;
 }

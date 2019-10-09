@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>The ComptoxAI Ontology (ComptoxOntology) &mdash; ComptoxAI v0.1.0a Manual</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
+    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" >
+    <link rel="search" title="Search" href="search.html" >
+    <link rel="top" title="ComptoxAI v0.1.0a Manual" href="index.html" >
+    <link rel="next" title="Graph representation of the ComptoxAI knowledge base (Graph)" href="graph.html" >
+    <link rel="prev" title="A wrapper class for ComptoxAI (ComptoxAI)" href="comptoxai.html" > 
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+    </div>
+  </div>
+
+
+    <div class="container">
+      <div class="main">
+        
+	<div class="row-fluid">
+	  <div class="span12">
+	    <div class="spc-navbar">
+              
+    <ul class="nav nav-pills pull-left">
+        <li class="active"><a href="https://comptox.ai/">comptox.ai</a></li>
+        <li class="active"><a href="https://comptox.ai/doc">Docs</a></li>
+	
+        <li class="active"><a href="index.html">ComptoxAI v0.1.0a Manual</a></li>
+	 
+    </ul>
+              
+              
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="genindex.html" title="General Index"
+           accesskey="I">index</a>
+      </li>
+      <li class="active">
+        <a href="py-modindex.html" title="Python Module Index"
+           >modules</a>
+      </li>
+      <li class="active">
+        <a href="graph.html" title="Graph representation of the ComptoxAI knowledge base (Graph)"
+           accesskey="N">next</a>
+      </li>
+      <li class="active">
+        <a href="comptoxai.html" title="A wrapper class for ComptoxAI (ComptoxAI)"
+           accesskey="P">previous</a>
+      </li>
+    </ul>
+              
+	    </div>
+	  </div>
+	</div>
+        
+
+	<div class="row-fluid">
+      <div class="spc-rightsidebar span3">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The ComptoxAI Ontology (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxOntology</span></code>)</a><ul>
+<li><a class="reference internal" href="#populating-the-owl-ontology">Populating the OWL Ontology</a></li>
+<li><a class="reference internal" href="#importing-the-owl-ontology-into-neo4j">Importing the OWL Ontology into Neo4j</a></li>
+<li><a class="reference internal" href="#querying-the-graph-database">Querying the graph database</a></li>
+<li><a class="reference internal" href="#exporting-data">Exporting data</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="comptoxai.html"
+                        title="previous chapter">A wrapper class for ComptoxAI (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxAI</span></code>)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="graph.html"
+                        title="next chapter">Graph representation of the ComptoxAI knowledge base (<code class="xref py py-class docutils literal notranslate"><span class="pre">Graph</span></code>)</a></p>
+  <h3>This Page</h3>
+  <div>
+    <a href="_sources/ontology.rst.txt"
+       rel="nofollow">Show Source</a>
+  </div>
+<div class="this-page-menu">
+  <a href="/scipy/docs/scipy-docs/ontology.rst.rst">Edit page</a>
+</div>
+
+        </div>
+      </div>
+          <div class="span9">
+            
+        <div class="bodywrapper">
+          <div class="body" id="spc-section-body">
+            
+  <div class="section" id="the-comptoxai-ontology-comptoxontology">
+<span id="ontology"></span><h1>The ComptoxAI Ontology (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxOntology</span></code>)<a class="headerlink" href="#the-comptoxai-ontology-comptoxontology" title="Permalink to this headline">¶</a></h1>
+<p>The ontology is the main point of interaction with both the knowledge
+representation and the knowledge base that—together—comprise
+Comptox Ontology. The implementation makes heavy use of ontology, RDF,
+and Neo4j libraries to provide rich functionality without the need for
+extensive boilerplate code.</p>
+<span class="target" id="module-comptox_ai.ontology"></span><div class="section" id="populating-the-owl-ontology">
+<h2>Populating the OWL Ontology<a class="headerlink" href="#populating-the-owl-ontology" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="importing-the-owl-ontology-into-neo4j">
+<h2>Importing the OWL Ontology into Neo4j<a class="headerlink" href="#importing-the-owl-ontology-into-neo4j" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="querying-the-graph-database">
+<h2>Querying the graph database<a class="headerlink" href="#querying-the-graph-database" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="exporting-data">
+<h2>Exporting data<a class="headerlink" href="#exporting-data" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container container-navbar-bottom">
+      <div class="spc-navbar">
+        
+      </div>
+    </div>
+    <div class="container">
+    <div class="footer">
+    <div class="row-fluid">
+    <ul class="inline pull-left">
+      <li>
+        &copy; Copyright .
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.0.
+      </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>

@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
+
   <style>
   html,
 body {
@@ -15,19 +18,59 @@ body {
     margin: 0;
 }
 
+header {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .wrap {
     min-height: 85%;
+}
+
+#logo {
+    color: #226b07;
+    font-weight: 600;
 }
 
 #main-content {
     overflow: auto;
     padding-bottom: 100px;
 }
+
+#page-content {
+    padding-top: 100px;
+    overflow: auto;
+}
   </style>
 
 </head>
 <body>
   <header>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a href="/" class="navbar-brand" id="logo">ComptoxAI</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a href="./index.html" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="" class="nav-link">Use</a></li>
+        <li class="nav-item"><a href="" class="nav-link">API Docs</a></li>
+      </ul>
+    </div>
+    <div class="nav navbar-nav navbar-right">
+      <ul class="navbar-nav navbar-right">
+        <li class="navbar-brand"><a href=""></a></li>
+        <li class="navbar-brand"><a href=""></a></li>
+        <li class="navbar-brand"><a href=""></a></li>
+      </ul>
+    </div>
+  </nav>
 </header>
 
   <div class="container wrap">
@@ -35,9 +78,13 @@ body {
       
   
   <div id="page-content">
-    <section>
-      <h2>ComptoxAI</h2>
-    </section>
+    <div class="container">
+      <section>
+        <p>Stay tuned while we finish building this site!</p>
+
+        <p>In the meantime, check out ComptoxAI's readme on GitHub: <a href="https://github.com/JDRomano2/comptox_ai">github.com/JDRomano2/comptox_ai</a>.</p>
+      </section>
+    </div>
   </div>
 
 
