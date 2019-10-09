@@ -4,7 +4,10 @@
   "description": "Main website for ComptoxAI",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx eleventy --config=config/eleventy.config.js",
+    "build-production": "ELEVENTY_PRODUCTION=true eleventy --config=config/eleventy.config.js",
+    "serve": "npx eleventy --config=config/eleventy.config.js --serve --watch"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,8 @@
   },
   "homepage": "https://github.com/jdromano2/comptox.ai#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.9.0"
+    "@11ty/eleventy": "^0.9.0",
+    "clean-css": "^4.2.1",
+    "njk": "^3.1.1"
   }
 }
