@@ -149,3 +149,5 @@ $RECYCLE.BIN/
 *.lnk
 
 # End
+# Local Netlify folder
+.netlify
