@@ -1,0 +1,14 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.wrap {
+    min-height: 85%;
+}
+
+#main-content {
+    overflow: auto;
+    padding-bottom: 100px;
+}
