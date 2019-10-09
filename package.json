@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jdromano2/comptox.ai/issues"
   },
-  "homepage": "https://github.com/jdromano2/comptox.ai#readme"
+  "homepage": "https://github.com/jdromano2/comptox.ai#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.9.0"
+  }
 }
