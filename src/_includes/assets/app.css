@@ -17,6 +17,10 @@ p {
     font-family: 'Open Sans', sans-serif;
 }
 
+img {
+    max-width: 100%;
+}
+
 .navbar-brand {
     padding-bottom: 7px;
 }

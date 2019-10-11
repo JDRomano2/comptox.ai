@@ -1,4 +1,5 @@
-const CleanCSS = require("clean-css")
+const CleanCSS = require("clean-css");
+const fs = require("fs");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addFilter("cssmin", function(code) {
@@ -20,10 +21,11 @@ module.exports = function(eleventyConfig) {
     }
   });
 
-  //eleventyConfig.addPassthroughCopy('src/assets')
+  eleventyConfig.addPassthroughCopy('src/assets')
+  eleventyConfig.addPassthroughCopy('src/_includes/assets/img')
 
   return {
-    templateFormats: ["html", "njk", "md", "js"],
+    templateFormats: ["html", "njk", "md", "js", "png", "jpg"],
     dir: {
       input: 'src',
       includes: '_includes',
