@@ -6,6 +6,7 @@ body {
 
 header {
     font-family: 'Roboto', sans-serif;
+    padding-bottom: 50px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -37,13 +38,13 @@ p {
     color: #226b07;
     font-weight: 600;
 }
-
+/* 
 #main-content {
     overflow: auto;
     padding-bottom: 100px;
 }
 
 #page-content {
-    padding-top: 100px;
+    padding-top: 50px;
     overflow: auto;
-}
+} */

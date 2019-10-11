@@ -5,6 +5,21 @@ module.exports = function(eleventyConfig) {
     return new CleanCSS({})
   })
 
+  // Make 404 page work with `eleventy --serve`
+  eleventyConfig.setBrowserSyncConfig({
+    callbacks: {
+      ready: function(err, bs) {
+        const content_404 = fs.readFileSync('www/404.html');
+
+        bs.addMiddleware("*", (req, res) => {
+          // Provide the 404 content without redirect
+          res.write(content_404);
+          res.end();
+        });
+      }
+    }
+  });
+
   //eleventyConfig.addPassthroughCopy('src/assets')
 
   return {

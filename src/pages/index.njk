@@ -8,10 +8,32 @@ permalink: /index.html
 {% block content %}
   <div id="page-content">
     <div class="container">
-      <section>
-        <p>Stay tuned while we finish building this site!</p>
+      <h2>ComptoxAI: A modern toolkit for AI research in computational toxicology</h2>
 
-        <p>In the meantime, check out ComptoxAI's readme on GitHub: <a href="https://github.com/JDRomano2/comptox_ai">github.com/JDRomano2/comptox_ai</a>.</p>
+      <!-- any important alerts to display first -->
+      <section>
+        <div class="alert alert-primary">
+          <p>Stay tuned while we finish building this site!</p>
+          <hr>
+          <p class="mb-0">In the meantime, check out ComptoxAI's readme on GitHub: <a href="https://github.com/JDRomano2/comptox_ai">github.com/JDRomano2/comptox_ai</a>.</p>
+        </div>
+      </section>
+
+      <!-- tl;dr for ComptoxAI -->
+      <section>
+        <h4>ComptoxAI provides:</h4>
+        <ul>
+          <li>A <b><a href="https://neo4j.com/blog/why-graph-databases-are-the-future/" target="_blank">graph database</a></b> for storing and retrieving data used in computational toxicology research (implemented in <a href="https://neo4j.com" target="_blank">Neo4j</a>)</li>
+          <li><b>Algorithms</b> for analyzing the structure of data stored in the graph database</li>
+          <li>A full-featured <b>OWL ontology</b> for computational toxicology (which is used to structure and query the graph database)</li>
+          <li><b>This website</b>, which includes a blog (coming soon) and showcase of research resulting from ComptoxAI</li>
+          <li>(Coming soon:) A gallery of <b>machine learning models</b> for making scientific discovery from ComptoxAI data</li>
+        </ul>
+      </section>
+
+      <hr>
+      <section>
+        <p>ComptoxAI is hosted by the <a href="http://epistasis.org" target="_blank">Computational Genetics Lab</a> at the University of Pennsylvania, and is maintained by <a href="http://jdr.bio" target="_blank">Joseph D. Romano</a>.</p>
       </section>
     </div>
   </div>
