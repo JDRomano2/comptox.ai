@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>Graph representation of the ComptoxAI knowledge base (Graph) &mdash; ComptoxAI v0.1.0a Manual</title>
+    <title>Graph database of computational toxicology concepts (comptox_ai.Graph) &mdash; ComptoxAI v0.1.0a Manual</title>
     
     <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
     <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
@@ -48,7 +48,6 @@
               
     <ul class="nav nav-pills pull-left">
         <li class="active"><a href="https://comptox.ai/">comptox.ai</a></li>
-        <li class="active"><a href="https://comptox.ai/docs">API Docs home</a></li>
 	
         <li class="active"><a href="index.html">ComptoxAI v0.1.0a Manual</a></li>
 	 
@@ -82,6 +81,16 @@
 	<div class="row-fluid">
       <div class="spc-rightsidebar span3">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Graph database of computational toxicology concepts (<code class="xref py py-class docutils literal notranslate"><span class="pre">comptox_ai.Graph</span></code>)</a><ul>
+<li><a class="reference internal" href="#installing-the-database-locally">Installing the database locally</a></li>
+<li><a class="reference internal" href="#connecting-to-our-instance-of-the-database">Connecting to our instance of the database</a></li>
+<li><a class="reference internal" href="#module-comptox_ai.graph">API Documentation</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="ontology.html"
                         title="previous chapter">The ComptoxAI Ontology (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxOntology</span></code>)</a></p>
@@ -104,8 +113,39 @@
         <div class="bodywrapper">
           <div class="body" id="spc-section-body">
             
-  <div class="section" id="module-comptox_ai.graph">
-<span id="graph-representation-of-the-comptoxai-knowledge-base-graph"></span><span id="graph"></span><h1>Graph representation of the ComptoxAI knowledge base (<code class="xref py py-class docutils literal notranslate"><span class="pre">Graph</span></code>)<a class="headerlink" href="#module-comptox_ai.graph" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="graph-database-of-computational-toxicology-concepts-comptox-ai-graph">
+<span id="graph"></span><h1>Graph database of computational toxicology concepts (<code class="xref py py-class docutils literal notranslate"><span class="pre">comptox_ai.Graph</span></code>)<a class="headerlink" href="#graph-database-of-computational-toxicology-concepts-comptox-ai-graph" title="Permalink to this headline">¶</a></h1>
+<p>ComptoxAI’s graph database is meant to completely replace traditional
+relational databases used for computational toxicology data. Rather than
+storing data in tables - with keys linking rows of one table to rows of another
+- a graph database stores entities as <strong>nodes</strong> and the relationships that join
+entities as <strong>edges</strong>, resulting in a network-like data structure known to
+computer scientists as a <strong>graph</strong>.</p>
+<div class="section" id="installing-the-database-locally">
+<h2>Installing the database locally<a class="headerlink" href="#installing-the-database-locally" title="Permalink to this headline">¶</a></h2>
+<p><em>(Instructions coming soon)</em></p>
+</div>
+<div class="section" id="connecting-to-our-instance-of-the-database">
+<h2>Connecting to our instance of the database<a class="headerlink" href="#connecting-to-our-instance-of-the-database" title="Permalink to this headline">¶</a></h2>
+<p>For users who don’t need (or want) to install the full copy of the database on
+their own computer, they can access a (possibly slightly out-of-date) version
+of the database hosted on our server and available for public use. This can be
+done by tweaking your configuration file to point to our public IP address:</p>
+<div class="admonition-hosted-database-configuration-settings admonition">
+<p class="admonition-title">Hosted database configuration settings</p>
+<p>Contents of <cite>CONFIG.cfg</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">NEO4J</span><span class="p">]</span>
+<span class="n">Username</span> <span class="o">=</span> <span class="n">neo4j</span>
+<span class="n">Password</span> <span class="o">=</span> <span class="n">neo4j</span>
+<span class="n">Hostname</span> <span class="o">=</span> <span class="n">XXX</span><span class="o">.</span><span class="n">XXX</span><span class="o">.</span><span class="n">XXX</span><span class="o">.</span><span class="n">XXX</span>  <span class="o">&lt;---</span> <span class="n">we</span><span class="s1">&#39;ll update this soon!</span>
+<span class="n">Protocol</span> <span class="o">=</span> <span class="n">bolt</span>
+<span class="n">Port</span> <span class="o">=</span> <span class="mi">7687</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="module-comptox_ai.graph">
+<span id="api-documentation"></span><h2>API Documentation<a class="headerlink" href="#module-comptox_ai.graph" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="comptox_ai.graph.Graph">
 <em class="property">class </em><code class="sig-prename descclassname">comptox_ai.graph.</code><code class="sig-name descname">Graph</code><span class="sig-paren">(</span><em class="sig-param">driver</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph" title="Permalink to this definition">¶</a></dt>
@@ -394,6 +434,7 @@ connected Neo4j graph database.</p>
 </dd></dl>
 
 </div>
+</div>
 
 
           </div>
@@ -413,7 +454,7 @@ connected Neo4j graph database.</p>
     <div class="row-fluid">
     <ul class="inline pull-left">
       <li>
-        &copy; Copyright .
+        &copy; Copyright 2019, Joseph D. Romano.
       </li>
       <li>
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.0.

@@ -28,7 +28,7 @@
     <link rel="index" title="Index" href="genindex.html" >
     <link rel="search" title="Search" href="search.html" >
     <link rel="top" title="ComptoxAI v0.1.0a Manual" href="#" >
-    <link rel="next" title="A wrapper class for ComptoxAI (ComptoxAI)" href="comptoxai.html" > 
+    <link rel="next" title="Top-level wrapper for ComptoxAI analyses (ComptoxAI)" href="comptoxai.html" > 
   </head>
   <body>
 
@@ -47,7 +47,6 @@
               
     <ul class="nav nav-pills pull-left">
         <li class="active"><a href="https://comptox.ai/">comptox.ai</a></li>
-        <li class="active"><a href="https://comptox.ai/docs">API Docs home</a></li>
 	 
     </ul>
               
@@ -62,7 +61,7 @@
            >modules</a>
       </li>
       <li class="active">
-        <a href="comptoxai.html" title="A wrapper class for ComptoxAI (ComptoxAI)"
+        <a href="comptoxai.html" title="Top-level wrapper for ComptoxAI analyses (ComptoxAI)"
            accesskey="N">next</a>
       </li>
     </ul>
@@ -78,12 +77,13 @@
   <h3><a href="#">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ComptoxAI Reference Guide</a></li>
+<li><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
 <li><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
 
   <h4>Next topic</h4>
   <p class="topless"><a href="comptoxai.html"
-                        title="next chapter">A wrapper class for ComptoxAI (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxAI</span></code>)</a></p>
+                        title="next chapter">Top-level wrapper for ComptoxAI analyses (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxAI</span></code>)</a></p>
   <h3>This Page</h3>
   <div>
     <a href="_sources/index.rst.txt"
@@ -107,16 +107,18 @@
 <dd class="field-odd"><p>0.1.0a</p>
 </dd>
 <dt class="field-even">Date</dt>
-<dd class="field-even"><p>Oct 09, 2019</p>
+<dd class="field-even"><p>Oct 11, 2019</p>
 </dd>
 </dl>
-<span class="target" id="module-comptox_ai"></span><p>This reference manual describes the functions, modules, and objects included in
-(and associated with) ComptoxAI - a centralized toolkit for computational
-toxicology.</p>
+<span class="target" id="module-comptox_ai"></span><p>Welcome! This reference manual documents the tools and code that comprise
+ComptoxAI - a centralized toolkit for computational toxicology.</p>
+<p>For installation and other user guides, please visit the <a class="reference external" href="https://comptox.ai/">main website</a>.</p>
+</div>
+<div class="section" id="table-of-contents">
+<h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="comptoxai.html">A wrapper class for ComptoxAI (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxAI</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="comptoxai.html">Top-level wrapper for ComptoxAI analyses (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxAI</span></code>)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ontology.html">The ComptoxAI Ontology (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxOntology</span></code>)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ontology.html#populating-the-owl-ontology">Populating the OWL Ontology</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ontology.html#importing-the-owl-ontology-into-neo4j">Importing the OWL Ontology into Neo4j</a></li>
@@ -124,7 +126,12 @@ toxicology.</p>
 <li class="toctree-l2"><a class="reference internal" href="ontology.html#exporting-data">Exporting data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="graph.html">Graph representation of the ComptoxAI knowledge base (<code class="xref py py-class docutils literal notranslate"><span class="pre">Graph</span></code>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph.html">Graph database of computational toxicology concepts (<code class="xref py py-class docutils literal notranslate"><span class="pre">comptox_ai.Graph</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graph.html#installing-the-database-locally">Installing the database locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html#connecting-to-our-instance-of-the-database">Connecting to our instance of the database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graph.html#module-comptox_ai.graph">API Documentation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="aop.html">Representation of an Adverse Outcome Pathway (<code class="xref py py-class docutils literal notranslate"><span class="pre">AOP</span></code>)</a></li>
 </ul>
 </div>
@@ -132,7 +139,9 @@ toxicology.</p>
 <div class="section" id="acknowledgements">
 <h1>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h1>
 <p>ComptoxAI’s documentation structure was adapted from the Numpy documentation
-(see <cite>Numpydoc &lt;https://numpydoc.readthedocs.io/en/latest&gt;</cite>).</p>
+(see <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest">numpydoc</a>), and uses the
+<a class="reference external" href="https://github.com/scipy/scipy-sphinx-theme">scipy-sphinx-theme</a> for visual
+styling.</p>
 </div>
 
 
@@ -153,7 +162,7 @@ toxicology.</p>
     <div class="row-fluid">
     <ul class="inline pull-left">
       <li>
-        &copy; Copyright .
+        &copy; Copyright 2019, Joseph D. Romano.
       </li>
       <li>
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.0.

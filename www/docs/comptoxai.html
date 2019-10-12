@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>A wrapper class for ComptoxAI (ComptoxAI) &mdash; ComptoxAI v0.1.0a Manual</title>
+    <title>Top-level wrapper for ComptoxAI analyses (ComptoxAI) &mdash; ComptoxAI v0.1.0a Manual</title>
     
     <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
     <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
@@ -48,7 +48,6 @@
               
     <ul class="nav nav-pills pull-left">
         <li class="active"><a href="https://comptox.ai/">comptox.ai</a></li>
-        <li class="active"><a href="https://comptox.ai/docs">API Docs home</a></li>
 	
         <li class="active"><a href="index.html">ComptoxAI v0.1.0a Manual</a></li>
 	 
@@ -104,21 +103,25 @@
         <div class="bodywrapper">
           <div class="body" id="spc-section-body">
             
-  <div class="section" id="a-wrapper-class-for-comptoxai-comptoxai">
-<span id="comptoxai"></span><h1>A wrapper class for ComptoxAI (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxAI</span></code>)<a class="headerlink" href="#a-wrapper-class-for-comptoxai-comptoxai" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="comptox_ai.ComptoxAI">
-<em class="property">class </em><code class="sig-prename descclassname">comptox_ai.</code><code class="sig-name descname">ComptoxAI</code><span class="sig-paren">(</span><em class="sig-param">username=None</em>, <em class="sig-param">password=None</em>, <em class="sig-param">uri=None</em>, <em class="sig-param">config_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.ComptoxAI" title="Permalink to this definition">¶</a></dt>
-<dd><p>Base class for the Comptox Ontology and its related graph
-knowledge base.</p>
-<dl class="method">
-<dt id="comptox_ai.ComptoxAI.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">username=None</em>, <em class="sig-param">password=None</em>, <em class="sig-param">uri=None</em>, <em class="sig-param">config_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.ComptoxAI.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="top-level-wrapper-for-comptoxai-analyses-comptoxai">
+<span id="comptoxai"></span><h1>Top-level wrapper for ComptoxAI analyses (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxAI</span></code>)<a class="headerlink" href="#top-level-wrapper-for-comptoxai-analyses-comptoxai" title="Permalink to this headline">¶</a></h1>
+<p>Most users should interact with ComptoxAI by instantiating this class and
+calling the provided convenience functions for running the most commonly-used
+subroutines.</p>
+<div class="admonition-example admonition">
+<p class="admonition-title">Example</p>
+<p>Connecting to the graph database and fetching a list of node degrees for all nodes in the ontology class “AdverseOutcome”:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cai</span> <span class="o">=</span> <span class="n">ComptoxAI</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="s2">&quot;../CONFIG-default.cfg&quot;</span><span class="p">)</span>
+<span class="go">Loading configuration file...</span>
+<span class="go">bolt://localhost:7687</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cai</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">get_node_degrees</span><span class="p">(</span><span class="s2">&quot;AdverseOutcome&quot;</span><span class="p">)</span>
+<span class="go">[(&#39;http://jdr.bio/ontologies/comptox.owl#ao_decrease_lung_function&#39;, 3),</span>
+<span class="go"> (&#39;http://jdr.bio/ontologies/comptox.owl#ao_inflamatory_events_in_light-exposed_tissues&#39;, 5),</span>
+<span class="go"> (&#39;http://jdr.bio/ontologies/comptox.owl#ao_bronchiolitis_obliterans&#39;, 3),</span>
+<span class="go"> (&#39;http://jdr.bio/ontologies/comptox.owl#ao_increase_adenomas/carcinomas_bronchioloalveolar&#39;, 4),</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -139,7 +142,7 @@ knowledge base.</p>
     <div class="row-fluid">
     <ul class="inline pull-left">
       <li>
-        &copy; Copyright .
+        &copy; Copyright 2019, Joseph D. Romano.
       </li>
       <li>
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.0.
