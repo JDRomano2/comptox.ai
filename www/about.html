@@ -102,32 +102,81 @@ pre {
       
   <div id="page-content">
     <div id="container">
-      <h2 class="pb-2">ComptoxAI: A modern toolkit for AI research in computational toxicology</h2>
+      <h2 class="pb-2">About ComptoxAI</h2>
       
-  <!-- any important alerts to display first -->
-  <section>
-    <div class="alert alert-primary">
-      <p>Stay tuned while we finish building this site!</p>
-      <hr>
-      <p class="mb-0">In the meantime, check out ComptoxAI's readme on GitHub: <a href="https://github.com/JDRomano2/comptox_ai/blob/master/README.md">github.com/JDRomano2/comptox_ai</a>.</p>
-    </div>
-  </section>
+  <div class="alert alert-info" role="alert">
+    <b>Computational toxicology</b> is the branch of toxicology that uses
+    computational modeling to predict toxic interactions in biological systems
+    and explain mechanisms of interactions that are already known.
+  </div>
 
-  <!-- image gallery -->
   <section>
-    <img src="_includes/assets/img/ontology.png" alt="ComptoxAI ontology" />
+    <p>ComptoxAI is a toolkit designed to enable AI and data science research in computational toxicology. Like many disciplines in biomedicine, computational toxicology is experiencing a deluge of valuable data being generated in a wide array of modalities and levels of application. However, the tools for interacting with these data are - at best - inconsistent, outdated, and fail to leverage state-of-the-art computational methods. We intend for ComptoxAI to change this.</p>
   </section>
+  <hr/>
 
-  <!-- tl;dr for ComptoxAI -->
   <section>
-    <h4>ComptoxAI provides:</h4>
-    <ul>
-      <li>A <b><a href="https://neo4j.com/blog/why-graph-databases-are-the-future/" target="_blank">graph database</a></b> for storing and retrieving data used in computational toxicology research (implemented in <a href="https://neo4j.com" target="_blank">Neo4j</a>)</li>
-      <li><b>Algorithms</b> for analyzing the structure of data stored in the graph database</li>
-      <li>A full-featured <b>OWL ontology</b> for computational toxicology (which is used to structure and query the graph database)</li>
-      <li><b>This website</b>, which includes a blog (coming soon) and showcase of research resulting from ComptoxAI</li>
-      <li>(Coming soon:) A gallery of <b>machine learning models</b> for making scientific discovery from ComptoxAI data</li>
-    </ul>
+  <h2>Main components of ComptoxAI</h2>
+
+  <h4>Toxicology graph database</h4>
+  <p>
+    ComptoxAI’s graph database is meant to completely replace traditional
+    relational databases used for computational toxicology data. Rather than
+    storing data in tables - with keys linking rows of one table to rows of
+    another - a graph database stores entities as nodes and the relationships
+    that join entities as edges, resulting in a network-like data structure
+    known to computer scientists as a graph.
+  </p>
+
+  <h4>Graph database algorithms</h4>
+  <p>
+    One of the key advantages of representing data as a graph is that it makes
+    it almost trivial to implement algorithms that highlight important
+    characteristics in networks. These include:
+  </p>
+  <ul>
+    <li>Shortest path finding between two nodes</li>
+    <li>Community detection</li>
+    <li>Page rank; for identifying the most influential nodes (made famous by Google)</li>
+  </ul>
+  <p>
+    All of these are (or soon will be) implemented natively in ComptoxAI, and
+    can be as simple as running a single line of Python code.
+  </p>
+
+  <h4>ComptoxAI's ontology</h4>
+  <p>
+    An ontology is a certain type of <i>knowledge representation</i> that makes
+    it possible to define concepts in a way that enables <i>automated
+    reasoning</i> (i.e., in a way that computers can "understand"). It does this
+    by linking objects arranged in a hierarchy via descriptive non-hierarchical
+    relationships. Ontologies are a crucial component of modern artificial
+    intelligence ecosystems, and nicely complement "knowledge-free" AI methods,
+    like statistical computing and machine learning.
+  </p>
+  <p>
+    ComptoxAI includes a complete ontology that gives explicit restrictions to
+    the data stored in the graph database.
+  </p>
+
+  <h4>Machine learning / deep learning model collection</h4>
+
+  <h4>Adverse Outcome Pathway utilities</h4>
+  </section>
+  <hr/>
+
+  <section>
+    <h2>ComptoxAI behind-the-scenes</h2>
+
+    <h4>
+    </h4>
+
+    <h4>Funding sources</h4>
+    <p>
+      ComptoxAI is supported by grant funding from the US National Institutes of
+      Health, including R01-LM010098 (PI: Moore), R01-LM012601 (PI: Moore), and
+      T32-ES019851 (PI: Penning).
+    </p>
   </section>
 
       <hr/>

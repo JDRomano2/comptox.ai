@@ -1,13 +1,35 @@
 ---
-title: Basic Use Guide
+title: Getting Started
 permalink: use.html
 ---
 
 {% extends 'layouts/page.njk' %}
 
 {% block content %}
+
   <hr/>
   <section>
     <h3>Installing ComptoxAI</h3>
+
+    <h4>Install prerequisites:</h4>
+
+    <p>
+      You'll need to have the following installed to make use of all of
+      ComptoxAI's features:
+    </p>
+
+    <ul>
+      <li>Python (>=3.7)</li>
+      <li>Neo4j (Desktop is recommended, but advanced users can use their preferred distribution)</li>
+    </ul>
+
+    <h4>Install ComptoxAI Python package:</h4>
+    <p>
+      Until we have a stable version uploaded to the Python Package Index, it is best to clone the source from the official git repository and build using the included installer script:
+    </p>
+    <pre>
+    > git clone https://github.com/jdromano2/comptox_ai
+    > cd comptox_ai
+    > pip install .</pre>
   </section>
 {% endblock %}

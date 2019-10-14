@@ -37,6 +37,20 @@ img {
     max-width: 100%;
 }
 
+pre {
+    display: block;
+    background-color: #fafafa;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.428571429;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 .navbar-brand {
     padding-bottom: 7px;
 }
@@ -58,16 +72,7 @@ img {
     color: #226b07;
     font-weight: 600;
 }
-/*
-#main-content {
-    overflow: auto;
-    padding-bottom: 100px;
-}
 
-#page-content {
-    padding-top: 50px;
-    overflow: auto;
-} */
   </style>
 
 </head>
@@ -97,11 +102,33 @@ img {
       
   <div id="page-content">
     <div id="container">
-      <h2 class="pb-2">Basic Use Guide</h2>
+      <h2 class="pb-2">Getting Started</h2>
       
+
   <hr/>
   <section>
     <h3>Installing ComptoxAI</h3>
+
+    <h4>Install prerequisites:</h4>
+
+    <p>
+      You'll need to have the following installed to make use of all of
+      ComptoxAI's features:
+    </p>
+
+    <ul>
+      <li>Python (>=3.7)</li>
+      <li>Neo4j (Desktop is recommended, but advanced users can use their preferred distribution)</li>
+    </ul>
+
+    <h4>Install ComptoxAI Python package:</h4>
+    <p>
+      Until we have a stable version uploaded to the Python Package Index, it is best to clone the source from the official git repository and build using the included installer script:
+    </p>
+    <pre>
+    > git clone https://github.com/jdromano2/comptox_ai
+    > cd comptox_ai
+    > pip install .</pre>
   </section>
 
       <hr/>
