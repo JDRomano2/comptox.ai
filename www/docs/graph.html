@@ -150,6 +150,13 @@ done by tweaking your configuration file to point to our public IP address:</p>
 <dt id="comptox_ai.graph.Graph">
 <em class="property">class </em><code class="sig-prename descclassname">comptox_ai.graph.</code><code class="sig-name descname">Graph</code><span class="sig-paren">(</span><em class="sig-param">driver</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base class for a knowledge graph used in ComptoxAI.</p>
+<p>This is essentially a connection to a Neo4j graph database plus a plethora
+of convenience methods for interacting with that graph database. Currently,
+graph algorithms (or procedure calls to Neo4j that trigger
+externally-defined graph algorithms) are defined _here_. In the future, this
+is planned to change - a separate class will be built for all graph
+algorithms, and this class will interact with the Graph class to execute
+queries and consume the results.</p>
 <p class="rubric">Methods</p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -170,7 +177,7 @@ done by tweaking your configuration file to point to our public IP address:</p>
 <td><p>Manually close the driver linking <cite>self.graph</cite> to a Neo4j graph database.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.fetch_neighbors_by_uri" title="comptox_ai.graph.Graph.fetch_neighbors_by_uri"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_neighbors_by_uri</span></code></a>(self, uri)</p></td>
-<td><p>Fetch nodes corresponding to neighbors of a node represented by a given URI.</p></td>
+<td><p>[summary]Fetch nodes corresponding to neighbors of a node represented by a given URI.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.fetch_node_by_uri" title="comptox_ai.graph.Graph.fetch_node_by_uri"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fetch_node_by_uri</span></code></a>(self, uri)</p></td>
 <td><p>Retrieve a node from Neo4j matching the given URI.</p></td>
@@ -185,7 +192,7 @@ done by tweaking your configuration file to point to our public IP address:</p>
 <td><p>Retrieve a list of URIs and their corresponding degrees.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.open_connection" title="comptox_ai.graph.Graph.open_connection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">open_connection</span></code></a>(self, username, password[, uri])</p></td>
-<td><p>Manually establish a connection between <cite>self.graph</cite> and a Neo4j graph database.</p></td>
+<td><p>Open a new connection to a Neo4j graph database.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#comptox_ai.graph.Graph.page_rank" title="comptox_ai.graph.Graph.page_rank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">page_rank</span></code></a>(self[, node_type])</p></td>
 <td><p>Compute page rank of all owl__NamedIndividual nodes in the attached graph.</p></td>
@@ -215,8 +222,17 @@ done by tweaking your configuration file to point to our public IP address:</p>
 <dl class="method">
 <dt id="comptox_ai.graph.Graph.__init__">
 <code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">driver</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize a ComptoxAI knowledge graph supported by a Neo4j
+<dd><p>[summary]Initialize a ComptoxAI knowledge graph supported by a Neo4j
 graph database instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>driver</strong><span class="classifier">neo4j.Driver</span></dt><dd><p>A Neo4j driver object that will maintain an active connection to a
+Neo4j database server containing ComptoxAI data.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -277,8 +293,23 @@ graph database.</p>
 <dl class="method">
 <dt id="comptox_ai.graph.Graph.fetch_neighbors_by_uri">
 <code class="sig-name descname">fetch_neighbors_by_uri</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">uri</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.fetch_neighbors_by_uri" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fetch nodes corresponding to neighbors of a node represented by a
+<dd><p>[summary]Fetch nodes corresponding to neighbors of a node represented by a
 given URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>uri</strong><span class="classifier">str</span></dt><dd><p>URI for a single node in the graph (including namespace)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>list of neo4j.Record or None</dt><dd><p>List of graph database records that represent the neighbors of
+<cite>uri</cite>. If the URI is invalid, <cite>None</cite> will be returned.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -369,8 +400,21 @@ node’s degree.</p>
 <dl class="method">
 <dt id="comptox_ai.graph.Graph.open_connection">
 <code class="sig-name descname">open_connection</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">username</em>, <em class="sig-param">password</em>, <em class="sig-param">uri='bolt://localhost:7687'</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.graph.Graph.open_connection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Manually establish a connection between <cite>self.graph</cite> and a
-Neo4j graph database.</p>
+<dd><p>Open a new connection to a Neo4j graph database.</p>
+<p>If a connection to a graph database already exists, it will be replaced.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>username</strong><span class="classifier">str</span></dt><dd><p>Neo4j database username</p>
+</dd>
+<dt><strong>password</strong><span class="classifier">str</span></dt><dd><p>Neo4j database password</p>
+</dd>
+<dt><strong>uri</strong><span class="classifier">str, optional</span></dt><dd><p>URI to a Bolt server that points at the graph database of interest,
+by default “bolt://localhost:7687”</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
