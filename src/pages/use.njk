@@ -31,5 +31,120 @@ permalink: use.html
     > git clone https://github.com/jdromano2/comptox_ai
     > cd comptox_ai
     > pip install .</pre>
+
+    <h4>Populate local graph database (optional):</h4>
+    <p>
+      Scripts for populating the graph database are included in <tt>comptox_ai/scripts/build/</tt>. Many of the external data sources used in building the database are already contained in the repository, within the <tt>data/external/</tt> directory. One source that is <i>not</i> included (due mainly to its size) is the Hetionet database. Being an open-access and publicly available database, this is 
+    </p>
+    <p>
+      All credit for externally-sourced data goes to the owners of those data.
+    </p>
+
+    <h4>Configure database connection:</h4>
+  </section>
+
+  <hr/>
+  <section>
+    <h3>Running a simple analysis (PageRank on graph database nodes)</h3>
+    <p>
+      First, if you are using a local copy of the graph database, make sure that
+      you have installed it correctly and ensure that the database server is
+      running. If needed, adjust the config file as described above in the
+      installation guide. You should be able to visit Neo4j's database server
+      GUI in a web browser and see the ComptoxAI data within.
+    </p>
+    <p>
+      Next, fire up an interactive Python session (done here with IPython) and
+      import ComptoxAI:
+    </p>
+    <pre>
+    > ipython
+    Python 3.7.4 (default, Jul 16 2019, 07:12:58) 
+    Type 'copyright', 'credits' or 'license' for more information
+    IPython 7.6.1 -- An enhanced Interactive Python. Type '?' for help.
+    
+    In [1]: from comptox_ai import ComptoxAI
+    INFO:rdflib:RDFLib Version: 4.2.2</pre>
+    <p>
+      We now instantiate the top-level ComptoxAI class:
+    </p>
+    <pre>
+    In [2]: cai = ComptoxAI(config_file = ...)  # fill in your config file path</pre>
+    <p>
+      From here, we can run any of the built-in analyses. Let's use PageRank to find
+      the most influential nodes in the graph:
+    </p>
+    <pre>
+    In [3]: pr = cai.graph.page_rank()
+    
+    In [4]: pr[:10]
+    Out[4]:
+    [('se_testis', 251.84428008493322),
+    ('se_brain', 249.14526419595217),
+    ('se_adrenal_gland', 211.4872832227568),
+    ('se_heart', 207.1130349845823),
+    ('se_lung', 203.3242165134909),
+    ('se_cerebellum', 199.93446466082676),
+    ('se_liver', 198.77043308823917),
+    ('se_prostate_gland', 190.25374497897783),
+    ('se_thyroid_gland', 187.19016549815586),
+    ('se_lymph_node', 186.69457370862435)]</pre>
+    <p>
+      Let's try again, but this time filter only for genes:
+    </p>
+    <pre>
+    In [5]: pr_gene = cai.graph.page_rank(node_type="Gene")
+
+    In [6]: pr_gene[:10]
+    Out[6]:
+    [('gene_cyp3a4', 11.560988548524636),
+    ('gene_cyp2d6', 6.7647527945532815),
+    ('gene_abcb1', 6.3322884477925605),
+    ('gene_cyp2c9', 5.921703296782642),
+    ('gene_cyp1a2', 4.964868955024512),
+    ('gene_cyp2c19', 4.424324301571445),
+    ('gene_alb', 3.9779853126469145),
+    ('gene_hrh1', 3.942149537189383),
+    ('gene_cyp3a5', 3.653596805978044),
+    ('gene_cyp2c8', 3.564163039777325)]</pre>
+    <p>
+      These results are cool! Genes starting with <tt>cyp</tt> are in the
+      Cytochrome P450 family, which play crucial roles in clearing toxins from
+      the body. <tt>abcb1</tt> is involved in the clearing of xenobiotic
+      compounds from the cell. In other words, the most influential genes in a
+      network of toxicology-related entities are genes essential to cellular
+      protection from toxins. Although this is just anecdotal, it is compelling
+      evidence that the structure of the graph database recapitulates important
+      mechanisms of toxicity.
+    </p>
+    <p>
+      As a follow-up question, we can ask if this behavior is simply a
+      characteristic of the human gene-gene interaction network, or if it is an
+      emergent phenomenon resulting from relationships to non-gene entities in
+      the graph database. One simple way to explore this is by performing
+      PageRank on only gene nodes, rather than performing PageRank on the entire
+      network and then filtering genes from those results:
+    </p>
+    <pre>
+    In [7]: pr_gene_sub = cai.graph.page_rank(node_type="Gene", filter_pre=True)
+    
+    In [8]: pr_gene_sub[:10]
+    Out[8]: 
+    [('gene_loc101929870', 0.15000000000000002),
+    ('gene_or51v1', 0.15000000000000002),
+    ('gene_casc7', 0.15000000000000002),
+    ('gene_loc100133145', 0.15000000000000002),
+    ('gene_loc105371944', 0.15000000000000002),
+    ('gene_cyyr1-as1', 0.15000000000000002),
+    ('gene_loc105371933', 0.15000000000000002),
+    ('gene_loc105371934', 0.15000000000000002),
+    ('gene_loc105371931', 0.15000000000000002),
+    ('gene_loc105371932', 0.15000000000000002)]</pre>
+    <p>
+      We can see that important information is lost when we remove non-gene node
+      types from the analysis. In addition to being interesting from a
+      scientific perspective, this demonstrates just how powerful graph
+      representations of data can be, regardless of the application!
+    </p>
   </section>
 {% endblock %}
