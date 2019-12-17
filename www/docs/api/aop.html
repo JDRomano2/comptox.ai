@@ -4,38 +4,41 @@
   <head>
     <meta charset="utf-8">
     
-    <title>Representation of an Adverse Outcome Pathway (AOP) &mdash; ComptoxAI v0.1.0a Manual</title>
+    <title>Adverse Outcome Pathway (AOP) &mdash; ComptoxAI v0.1.dev0 Manual</title>
     
-    <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
-    <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
+    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
+    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" >
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
+        URL_ROOT:    '../',
         VERSION:     '',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  false
       };
     </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
-    <script type="text/javascript" src="_static/js/copybutton.js"></script>
-    <link rel="index" title="Index" href="genindex.html" >
-    <link rel="search" title="Search" href="search.html" >
-    <link rel="top" title="ComptoxAI v0.1.0a Manual" href="index.html" >
-    <link rel="prev" title="Graph database of computational toxicology concepts (comptox_ai.Graph)" href="graph.html" > 
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" >
+    <link rel="search" title="Search" href="../search.html" >
+    <link rel="top" title="ComptoxAI v0.1.dev0 Manual" href="../index.html" >
+    <link rel="up" title="ComptoxAI API Reference" href="index.html" >
+    <link rel="prev" title="The ComptoxAI Ontology (ComptoxOntology)" href="ontology.html" > 
   </head>
   <body>
-
-  <div class="container">
-    <div class="header">
-    </div>
-  </div>
+<div class="container">
+  <span class="top-logo-header">
+    <a href="/" class="navbar-brand" id="logo">ComptoxAI</a>
+  </span> 
+</div>
 
 
     <div class="container">
@@ -48,22 +51,19 @@
     <ul class="nav nav-pills pull-left">
         <li class="active"><a href="https://comptox.ai/">comptox.ai</a></li>
 	
-        <li class="active"><a href="index.html">ComptoxAI v0.1.0a Manual</a></li>
-	 
+        <li class="active"><a href="../contents.html">ComptoxAI v0.1.dev0 Manual</a></li>
+	
+          <li class="active"><a href="index.html" accesskey="U">ComptoxAI API Reference</a></li> 
     </ul>
               
               
     <ul class="nav nav-pills pull-right">
       <li class="active">
-        <a href="genindex.html" title="General Index"
+        <a href="../genindex.html" title="General Index"
            accesskey="I">index</a>
       </li>
       <li class="active">
-        <a href="py-modindex.html" title="Python Module Index"
-           >modules</a>
-      </li>
-      <li class="active">
-        <a href="graph.html" title="Graph database of computational toxicology concepts (comptox_ai.Graph)"
+        <a href="ontology.html" title="The ComptoxAI Ontology (ComptoxOntology)"
            accesskey="P">previous</a>
       </li>
     </ul>
@@ -77,17 +77,21 @@
       <div class="spc-rightsidebar span3">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="graph.html"
-                        title="previous chapter">Graph database of computational toxicology concepts (<code class="xref py py-class docutils literal notranslate"><span class="pre">comptox_ai.Graph</span></code>)</a></p>
-  <h3>This Page</h3>
-  <div>
-    <a href="_sources/aop.rst.txt"
-       rel="nofollow">Show Source</a>
-  </div>
-<div class="this-page-menu">
-  <a href="/scipy/docs/scipy-docs/aop.rst.rst">Edit page</a>
-</div>
+  <p class="topless"><a href="ontology.html"
+                        title="previous chapter">The ComptoxAI Ontology (<code class="xref py py-class docutils literal notranslate"><span class="pre">ComptoxOntology</span></code>)</a></p>
 
+<div id="searchbox" style="display: none" role="search">
+  <h4>Quick search</h4>
+    <div>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" style="width: inherit;" name="q" />
+      <input type="submit" value="search" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
           <div class="span9">
@@ -95,9 +99,13 @@
         <div class="bodywrapper">
           <div class="body" id="spc-section-body">
             
-  <div class="section" id="module-comptox_ai.aop">
-<span id="representation-of-an-adverse-outcome-pathway-aop"></span><span id="aop"></span><h1>Representation of an Adverse Outcome Pathway (<code class="xref py py-class docutils literal notranslate"><span class="pre">AOP</span></code>)<a class="headerlink" href="#module-comptox_ai.aop" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+  <div class="section" id="adverse-outcome-pathway-aop">
+<span id="aop"></span><h1>Adverse Outcome Pathway (<code class="xref py py-class docutils literal notranslate"><span class="pre">AOP</span></code>)<a class="headerlink" href="#adverse-outcome-pathway-aop" title="Permalink to this headline">¶</a></h1>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../guide/aop.html#guide-aop"><span class="std std-ref">AOPs (Adverse Outcome Pathways) in ComptoxAI</span></a></p>
+</div>
+<span class="target" id="module-comptox_ai.aop"></span><dl class="class">
 <dt id="comptox_ai.aop.AdverseOutcomePathway">
 <em class="property">class </em><code class="sig-prename descclassname">comptox_ai.aop.</code><code class="sig-name descname">AdverseOutcomePathway</code><span class="sig-paren">(</span><em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#comptox_ai.aop.AdverseOutcomePathway" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adverse Outcome Pathway—A framework for conceptualizing how
@@ -163,7 +171,10 @@ empty AOP and construct its key event graph later.</p>
         &copy; Copyright 2019, Joseph D. Romano.
       </li>
       <li>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.0.
+      Last updated on Dec 17, 2019.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.1.
       </li>
     </ul>
     </div>

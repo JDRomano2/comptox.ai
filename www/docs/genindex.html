@@ -5,12 +5,13 @@
   <head>
     <meta charset="utf-8">
     
-    <title>Index &mdash; ComptoxAI v0.1.0a Manual</title>
+    <title>Index &mdash; ComptoxAI v0.1.dev0 Manual</title>
     
     <link rel="stylesheet" type="text/css" href="_static/css/spc-bootstrap.css">
     <link rel="stylesheet" type="text/css" href="_static/css/spc-extend.css">
     <link rel="stylesheet" href="_static/scipy.css" type="text/css" >
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" >
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" >
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -18,24 +19,25 @@
         VERSION:     '',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  false
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/js/copybutton.js"></script>
     <link rel="index" title="Index" href="#" >
     <link rel="search" title="Search" href="search.html" >
-    <link rel="top" title="ComptoxAI v0.1.0a Manual" href="index.html" > 
+    <link rel="top" title="ComptoxAI v0.1.dev0 Manual" href="index.html" > 
   </head>
   <body>
-
-  <div class="container">
-    <div class="header">
-    </div>
-  </div>
+<div class="container">
+  <span class="top-logo-header">
+    <a href="/" class="navbar-brand" id="logo">ComptoxAI</a>
+  </span> 
+</div>
 
 
     <div class="container">
@@ -48,7 +50,7 @@
     <ul class="nav nav-pills pull-left">
         <li class="active"><a href="https://comptox.ai/">comptox.ai</a></li>
 	
-        <li class="active"><a href="index.html">ComptoxAI v0.1.0a Manual</a></li>
+        <li class="active"><a href="contents.html">ComptoxAI v0.1.dev0 Manual</a></li>
 	 
     </ul>
               
@@ -57,10 +59,6 @@
       <li class="active">
         <a href="#" title="General Index"
            accesskey="I">index</a>
-      </li>
-      <li class="active">
-        <a href="py-modindex.html" title="Python Module Index"
-           >modules</a>
       </li>
     </ul>
               
@@ -73,6 +71,18 @@
       <div class="spc-rightsidebar span3">
         <div class="sphinxsidebarwrapper">
 
+<div id="searchbox" style="display: none" role="search">
+  <h4>Quick search</h4>
+    <div>
+    <form class="search" action="search.html" method="get">
+      <input type="text" style="width: inherit;" name="q" />
+      <input type="submit" value="search" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
           <div class="span9">
@@ -99,14 +109,14 @@
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="aop.html#comptox_ai.aop.AdverseOutcomePathway.__init__">__init__() (comptox_ai.aop.AdverseOutcomePathway method)</a>
+      <li><a href="api/aop.html#comptox_ai.aop.AdverseOutcomePathway.__init__">__init__() (comptox_ai.aop.AdverseOutcomePathway method)</a>
 
       <ul>
-        <li><a href="comptoxai.html#comptox_ai.ComptoxAI.__init__">(comptox_ai.ComptoxAI method)</a>
+        <li><a href="api/graph.html#comptox_ai.graph.Graph.__init__">(comptox_ai.graph.Graph method)</a>
 </li>
-        <li><a href="graph.html#comptox_ai.graph.Graph.__init__">(comptox_ai.graph.Graph method)</a>
+        <li><a href="api/graph.html#comptox_ai.graph.Path.__init__">(comptox_ai.graph.Path method)</a>
 </li>
-        <li><a href="ontology.html#comptox_ai.ontology.ComptoxOntology.__init__">(comptox_ai.ontology.ComptoxOntology method)</a>
+        <li><a href="api/ontology.html#comptox_ai.ontology.ComptoxOntology.__init__">(comptox_ai.ontology.ComptoxOntology method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -115,11 +125,7 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="aop.html#comptox_ai.aop.AdverseOutcomePathway">AdverseOutcomePathway (class in comptox_ai.aop)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#comptox_ai.graph.Graph.aop_shortest_path">aop_shortest_path() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/aop.html#comptox_ai.aop.AdverseOutcomePathway">AdverseOutcomePathway (class in comptox_ai.aop)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -127,11 +133,11 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#comptox_ai.graph.Graph.build_adjacency_matrix">build_adjacency_matrix() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Graph.build_adjacency_matrix">build_adjacency_matrix() (comptox_ai.graph.Graph method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#comptox_ai.graph.Graph.build_incidence_matrix">build_incidence_matrix() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Graph.build_incidence_matrix">build_incidence_matrix() (comptox_ai.graph.Graph method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -139,21 +145,23 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#comptox_ai.graph.Graph.close_connection">close_connection() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Graph.close_connection">close_connection() (comptox_ai.graph.Graph method)</a>
 </li>
-      <li><a href="index.html#module-comptox_ai">comptox_ai (module)</a>
+      <li><a href="api/aop.html#module-comptox_ai.aop">comptox_ai.aop (module)</a>
 </li>
-      <li><a href="aop.html#module-comptox_ai.aop">comptox_ai.aop (module)</a>
+      <li><a href="guide/aop.html#module-comptox_ai.doc.aop">comptox_ai.doc.aop (module)</a>
+</li>
+      <li><a href="guide/building.html#module-comptox_ai.doc.building">comptox_ai.doc.building (module)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#module-comptox_ai.graph">comptox_ai.graph (module)</a>
+      <li><a href="guide/graph.html#module-comptox_ai.doc.graph">comptox_ai.doc.graph (module)</a>
 </li>
-      <li><a href="ontology.html#module-comptox_ai.ontology">comptox_ai.ontology (module)</a>
+      <li><a href="api/graph.html#module-comptox_ai.graph">comptox_ai.graph (module)</a>
 </li>
-      <li><a href="comptoxai.html#comptox_ai.ComptoxAI">ComptoxAI (class in comptox_ai)</a>
+      <li><a href="api/ontology.html#module-comptox_ai.ontology">comptox_ai.ontology (module)</a>
 </li>
-      <li><a href="ontology.html#comptox_ai.ontology.ComptoxOntology">ComptoxOntology (class in comptox_ai.ontology)</a>
+      <li><a href="api/ontology.html#comptox_ai.ontology.ComptoxOntology">ComptoxOntology (class in comptox_ai.ontology)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -161,15 +169,15 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#comptox_ai.graph.Graph.fetch_neighbors_by_uri">fetch_neighbors_by_uri() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Graph.fetch_neighbors_by_uri">fetch_neighbors_by_uri() (comptox_ai.graph.Graph method)</a>
 </li>
-      <li><a href="graph.html#comptox_ai.graph.Graph.fetch_node_by_uri">fetch_node_by_uri() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Graph.fetch_node_by_uri">fetch_node_by_uri() (comptox_ai.graph.Graph method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#comptox_ai.graph.Graph.fetch_nodes_by_label">fetch_nodes_by_label() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Graph.fetch_nodes_by_label">fetch_nodes_by_label() (comptox_ai.graph.Graph method)</a>
 </li>
-      <li><a href="graph.html#comptox_ai.graph.Graph.fetch_ontology_class_labels">fetch_ontology_class_labels() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Graph.fetch_ontology_class_labels">fetch_ontology_class_labels() (comptox_ai.graph.Graph method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -177,11 +185,11 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#comptox_ai.graph.Graph.get_node_degrees">get_node_degrees() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Graph.get_node_degrees">get_node_degrees() (comptox_ai.graph.Graph method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#comptox_ai.graph.Graph">Graph (class in comptox_ai.graph)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Graph">Graph (class in comptox_ai.graph)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -189,7 +197,7 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#comptox_ai.graph.Graph.open_connection">open_connection() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Graph.open_connection">open_connection() (comptox_ai.graph.Graph method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -197,7 +205,7 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#comptox_ai.graph.Graph.page_rank">page_rank() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Path">Path (class in comptox_ai.graph)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -205,7 +213,7 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#comptox_ai.graph.Graph.run_query_in_session">run_query_in_session() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Graph.run_query_in_session">run_query_in_session() (comptox_ai.graph.Graph method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -213,7 +221,7 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="graph.html#comptox_ai.graph.Graph.to_networkx_graph">to_networkx_graph() (comptox_ai.graph.Graph method)</a>
+      <li><a href="api/graph.html#comptox_ai.graph.Graph.to_networkx_graph">to_networkx_graph() (comptox_ai.graph.Graph method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -240,7 +248,10 @@
         &copy; Copyright 2019, Joseph D. Romano.
       </li>
       <li>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.0.
+      Last updated on Dec 17, 2019.
+      </li>
+      <li>
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.1.
       </li>
     </ul>
     </div>
