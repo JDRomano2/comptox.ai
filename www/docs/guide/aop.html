@@ -1,127 +1,122 @@
+
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8">
-    
-    <title>AOPs (Adverse Outcome Pathways) in ComptoxAI &mdash; ComptoxAI v0.1.dev0 Manual</title>
-    
-    <link rel="stylesheet" type="text/css" href="../_static/css/spc-bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../_static/css/spc-extend.css">
-    <link rel="stylesheet" href="../_static/scipy.css" type="text/css" >
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" >
-    <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" >
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  false
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" >
-    <link rel="search" title="Search" href="../search.html" >
-    <link rel="top" title="ComptoxAI v0.1.dev0 Manual" href="../index.html" >
-    <link rel="up" title="ComptoxAI User Guide" href="index.html" >
-    <link rel="next" title="ComptoxAI API Reference" href="../api/index.html" >
-    <link rel="prev" title="ComptoxAI’s graph database" href="graph.html" > 
-  </head>
-  <body>
-<div class="container">
-  <span class="top-logo-header">
-    <a href="/" class="navbar-brand" id="logo">ComptoxAI</a>
-  </span> 
-</div>
+    <meta charset="utf-8" />
+    <title>Adverse Outcome Pathways &#8212; ComptoxAI 0.1a documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Useful Cypher queries" href="useful_queries.html" />
+    <link rel="prev" title="Data Schema" href="data_schema.html" />
 
-
-    <div class="container">
-      <div class="main">
-        
-	<div class="row-fluid">
-	  <div class="span12">
-	    <div class="spc-navbar">
-              
-    <ul class="nav nav-pills pull-left">
-        <li class="active"><a href="https://comptox.ai/">comptox.ai</a></li>
-        <li class="active"><a href="https://comptox.ai/docs">ComptoxAI Docs</a></li>
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
-    <li class="active"><a href="../index.html">ComptoxAI v0.1.dev0 Manual</a></li>
   
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-          <li class="active"><a href="index.html" accesskey="U">ComptoxAI User Guide</a></li> 
-    </ul>
-              
-              
-    <ul class="nav nav-pills pull-right">
-      <li class="active">
-        <a href="../genindex.html" title="General Index"
-           accesskey="I">index</a>
-      </li>
-      <li class="active">
-        <a href="../api/index.html" title="ComptoxAI API Reference"
-           accesskey="N">next</a>
-      </li>
-      <li class="active">
-        <a href="graph.html" title="ComptoxAI’s graph database"
-           accesskey="P">previous</a>
-      </li>
-    </ul>
-              
-	    </div>
-	  </div>
-	</div>
+
+<script src="https://use.fontawesome.com/04f6e4e6fe.js"></script>
+
+  </head><body>
+<header>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a href="http://comptox.ai" class="navbar-brand" id="logo">ComptoxAI</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
         
+        <li class="nav-item"><a href="http://comptox.ai/about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="http://comptox.ai/use.html" class="nav-link">Use</a></li>
+        <li class="nav-item"><a href="http://comptox.ai/docs" class="nav-link">API Docs</a></li>
+        <li class="nav-item"><a href="http://comptox.ai/contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+    <div class="nav navbar-nav navbar-right">
+      <ul class="navbar-nav navbar-right">
+        <li class="navbar-brand"><a href="https://github.com/jdromano2/comptox_ai" target="_blank"><i class="fa fa-github-square fa-2x"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
 
-	<div class="row-fluid">
-      <div class="spc-rightsidebar span3">
+
+
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../contents.html">Table of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">AOPs (Adverse Outcome Pathways) in ComptoxAI</a><ul>
-<li><a class="reference internal" href="#what-is-an-adverse-outcome-pathway">What is an adverse outcome pathway?</a></li>
-<li><a class="reference internal" href="#main-components-of-an-aop">Main components of an AOP</a></li>
-<li><a class="reference internal" href="#how-are-adverse-outcome-pathways-used-in-comptoxai">How are adverse outcome pathways used in ComptoxAI?</a></li>
-<li><a class="reference internal" href="#references">References</a></li>
-</ul>
-</li>
+<h1 class="logo"><a href="../index.html">ComptoxAI</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=jdromano2&repo=comptox_ai&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a></li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="graph.html"
-                        title="previous chapter">ComptoxAI’s graph database</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="../api/index.html"
-                        title="next chapter">ComptoxAI API Reference</a></p>
-
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">User Guide</a><ul>
+      <li>Previous: <a href="data_schema.html" title="previous chapter">Data Schema</a></li>
+      <li>Next: <a href="useful_queries.html" title="next chapter">Useful Cypher queries</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
 <div id="searchbox" style="display: none" role="search">
-  <h4>Quick search</h4>
-    <div>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" style="width: inherit;" name="q" />
-      <input type="submit" value="search" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
         </div>
       </div>
-          <div class="span9">
-            
+      <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body" id="spc-section-body">
+          
+
+          <div class="body" role="main">
             
   <div class="section" id="module-comptox_ai.doc.aop">
-<span id="aops-adverse-outcome-pathways-in-comptoxai"></span><span id="guide-aop"></span><h1>AOPs (Adverse Outcome Pathways) in ComptoxAI<a class="headerlink" href="#module-comptox_ai.doc.aop" title="Permalink to this headline">¶</a></h1>
+<span id="adverse-outcome-pathways"></span><span id="aop"></span><h1>Adverse Outcome Pathways<a class="headerlink" href="#module-comptox_ai.doc.aop" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-is-an-adverse-outcome-pathway">
 <h2>What is an adverse outcome pathway?<a class="headerlink" href="#what-is-an-adverse-outcome-pathway" title="Permalink to this headline">¶</a></h2>
 <p>An Adverse Outcome Pathway (AOP) is a conceptual framework for structuring the
@@ -217,7 +212,7 @@ to make it easier to retrieve, manipulate, and analyze AOPs, as well as the
 roles they play in the larger perspective of the entire graph database.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="../api/aop.html#aop"><span class="std std-ref">Adverse Outcome Pathway (AOP)</span></a></p>
+<p><a class="reference internal" href="#aop"><span class="std std-ref">Adverse Outcome Pathways</span></a></p>
 </div>
 </div>
 <div class="section" id="references">
@@ -234,33 +229,21 @@ Toxicology and Chemistry: An International Journal 29.3 (2010): 730-741.</p>
 
 
           </div>
-        </div>
-          </div>
+          
         </div>
       </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2020, Joseph D. Romano.
+      
+      |
+      <a href="../_sources/guide/aop.rst.txt"
+          rel="nofollow">Page source</a>
     </div>
 
-    <div class="container container-navbar-bottom">
-      <div class="spc-navbar">
-        
-      </div>
-    </div>
-    <div class="container">
-    <div class="footer">
-    <div class="row-fluid">
-    <ul class="inline pull-left">
-      <li>
-        &copy; Copyright 2019, Joseph D. Romano.
-      </li>
-      <li>
-      Last updated on Dec 17, 2019.
-      </li>
-      <li>
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 2.2.1.
-      </li>
-    </ul>
-    </div>
-    </div>
-    </div>
+    
+
+    
   </body>
 </html>

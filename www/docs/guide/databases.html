@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>API Reference &#8212; ComptoxAI 0.1a documentation</title>
+    <title>Source Databases &#8212; ComptoxAI 0.1a documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Graph" href="graph.html" />
-    <link rel="prev" title="Useful Cypher queries" href="../guide/useful_queries.html" />
+    <link rel="next" title="Data Schema" href="data_schema.html" />
+    <link rel="prev" title="Entity Types in ComptoxAI" href="entity_types.html" />
 
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -74,16 +74,18 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">User Guide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../guide/useful_queries.html" title="previous chapter">Useful Cypher queries</a></li>
-      <li>Next: <a href="graph.html" title="next chapter">Graph</a></li>
+  <li><a href="index.html">User Guide</a><ul>
+      <li>Previous: <a href="entity_types.html" title="previous chapter">Entity Types in ComptoxAI</a></li>
+      <li>Next: <a href="data_schema.html" title="next chapter">Data Schema</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -113,14 +115,51 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="api-reference">
-<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="graph.html">Graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="graph_algorithm.html">Graph Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ml.html">Machine Learning library</a></li>
-</ul>
+  <div class="section" id="module-comptox_ai.doc.databases">
+<span id="source-databases"></span><span id="guide-databases"></span><h1>Source Databases<a class="headerlink" href="#module-comptox_ai.doc.databases" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>ComptoxAI does not involve the creation of new data. Instead, it integrates a number of existing datasets relevant to toxicology into a large graph database that aims to span the translational spectrum with regards to mechanisms of toxicity (and related concepts).</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Database</p></th>
+<th class="head"><p>Version</p></th>
+<th class="head"><p>Domain(s)</p></th>
+<th class="head"><p>URL</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AOP-Wiki</p></td>
+<td><p>2.2</p></td>
+<td><p>Adverse Outcome Pathways</p></td>
+<td><p><a class="reference external" href="http://aopwiki.org">http://aopwiki.org</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>CTDBase</p></td>
+<td><p>December 2019</p></td>
+<td><p>Chemicals, genes, phenotypes</p></td>
+<td><p><a class="reference external" href="http://ctdbase.org">http://ctdbase.org</a></p></td>
+</tr>
+<tr class="row-even"><td><p>EPA Chemistry Dashboard</p></td>
+<td><p>n/a</p></td>
+<td><p>Chemicals (multiple sub-databases)</p></td>
+<td><p><a class="reference external" href="http://comptox.epa.gov/dashboard">http://comptox.epa.gov/dashboard</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Hetionet</p></td>
+<td><p>1.0</p></td>
+<td><p>Multiple (translational)</p></td>
+<td><p><a class="reference external" href="http://het.io">http://het.io</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -135,7 +174,7 @@
       &copy;2020, Joseph D. Romano.
       
       |
-      <a href="../_sources/api/index.rst.txt"
+      <a href="../_sources/guide/databases.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

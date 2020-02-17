@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>User Guide &#8212; ComptoxAI 0.1a documentation</title>
+    <title>Entity Types in ComptoxAI &#8212; ComptoxAI 0.1a documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installing ComptoxAI" href="installing.html" />
-    <link rel="prev" title="Welcome to ComptoxAI’s documentation!" href="../index.html" />
+    <link rel="next" title="Source Databases" href="databases.html" />
+    <link rel="prev" title="Graphs" href="graph_concepts.html" />
 
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -74,7 +74,7 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a></li>
 </ul>
 
@@ -82,8 +82,10 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../index.html" title="previous chapter">Welcome to ComptoxAI’s documentation!</a></li>
-      <li>Next: <a href="installing.html" title="next chapter">Installing ComptoxAI</a></li>
+  <li><a href="index.html">User Guide</a><ul>
+      <li>Previous: <a href="graph_concepts.html" title="previous chapter">Graphs</a></li>
+      <li>Next: <a href="databases.html" title="next chapter">Source Databases</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -113,20 +115,101 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="user-guide">
-<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing ComptoxAI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Using ComptoxAI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="graph_db.html">Graph Databases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="graph_concepts.html">Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="entity_types.html">Entity Types in ComptoxAI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="databases.html">Source Databases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_schema.html">Data Schema</a></li>
-<li class="toctree-l1"><a class="reference internal" href="aop.html">Adverse Outcome Pathways</a></li>
-<li class="toctree-l1"><a class="reference internal" href="useful_queries.html">Useful Cypher queries</a></li>
-</ul>
+  <div class="section" id="module-comptox_ai.doc.entity_types">
+<span id="entity-types-in-comptoxai"></span><h1>Entity Types in ComptoxAI<a class="headerlink" href="#module-comptox_ai.doc.entity_types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="entity-types">
+<h2>Entity Types<a class="headerlink" href="#entity-types" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="databases.html#guide-databases"><span class="std std-ref">Source databases</span></a></p>
+</div>
+<div class="section" id="node-types">
+<h3>Node types<a class="headerlink" href="#node-types" title="Permalink to this headline">¶</a></h3>
+<p>In Neo4j nomenclature, these are referred to as “node labels”.</p>
+<div class="section" id="chemicals">
+<h4>Chemicals<a class="headerlink" href="#chemicals" title="Permalink to this headline">¶</a></h4>
+<p>Any chemical substance. Special emphasis is given to xenobiotic chemicals.</p>
+<p>Metadata:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Data element</p></td>
+<td><p>Data type</p></td>
+<td><p>Example</p></td>
+</tr>
+<tr class="row-even"><td><p>commonName</p></td>
+<td><p>string</p></td>
+<td><p>“Gentamicin</p></td>
+</tr>
+<tr class="row-odd"><td><p>chemicalIsDrug</p></td>
+<td><p>bool</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>xrefCasRN</p></td>
+<td><p>string</p></td>
+<td><p>“1403-66-3”</p></td>
+</tr>
+<tr class="row-odd"><td><p>xrefDrugbank</p></td>
+<td><p>string</p></td>
+<td><p>“DB00798”</p></td>
+</tr>
+</tbody>
+</table>
+<p>Chemical features:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 26%" />
+<col style="width: 40%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Feature name</p></td>
+<td><p>Data type</p></td>
+<td><p>Dimensionality</p></td>
+</tr>
+<tr class="row-even"><td><p>SMILEs</p></td>
+<td><p>String</p></td>
+<td><p>n/a</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="genes">
+<h4>Genes<a class="headerlink" href="#genes" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 32%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data element</p></th>
+<th class="head"><p>Data type</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="diseases">
+<h4>Diseases<a class="headerlink" href="#diseases" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="aops">
+<h4>AOPs<a class="headerlink" href="#aops" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="relationship-types">
+<h3>Relationship types<a class="headerlink" href="#relationship-types" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 </div>
 
@@ -141,7 +224,7 @@
       &copy;2020, Joseph D. Romano.
       
       |
-      <a href="../_sources/guide/index.rst.txt"
+      <a href="../_sources/guide/entity_types.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

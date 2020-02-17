@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>API Reference &#8212; ComptoxAI 0.1a documentation</title>
+    <title>Graphs &#8212; ComptoxAI 0.1a documentation</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -16,8 +16,8 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Graph" href="graph.html" />
-    <link rel="prev" title="Useful Cypher queries" href="../guide/useful_queries.html" />
+    <link rel="next" title="Entity Types in ComptoxAI" href="entity_types.html" />
+    <link rel="prev" title="Graph Databases" href="graph_db.html" />
 
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
@@ -74,16 +74,18 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../guide/index.html">User Guide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../guide/useful_queries.html" title="previous chapter">Useful Cypher queries</a></li>
-      <li>Next: <a href="graph.html" title="next chapter">Graph</a></li>
+  <li><a href="index.html">User Guide</a><ul>
+      <li>Previous: <a href="graph_db.html" title="previous chapter">Graph Databases</a></li>
+      <li>Next: <a href="entity_types.html" title="next chapter">Entity Types in ComptoxAI</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -113,14 +115,17 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="api-reference">
-<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="graph.html">Graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="graph_algorithm.html">Graph Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ml.html">Machine Learning library</a></li>
-</ul>
+  <div class="section" id="module-comptox_ai.doc.graph_concepts">
+<span id="graphs"></span><h1>Graphs<a class="headerlink" href="#module-comptox_ai.doc.graph_concepts" title="Permalink to this headline">¶</a></h1>
+<p>Graph databases have many advantages - both theoretical and practical - over traditional relational databases. Many good descriptions of graph database concepts are available on the internet, but users will probably find it helpful to hear this information from the perspective of biomedical knowledge representation and AI (and, of course, ComptoxAI in particular).</p>
+<div class="section" id="behavior-of-neo4j">
+<h2>Behavior of Neo4j<a class="headerlink" href="#behavior-of-neo4j" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="induced-subgraphs">
+<h3>Induced Subgraphs<a class="headerlink" href="#induced-subgraphs" title="Permalink to this headline">¶</a></h3>
+<p>An induced subgraph <span class="math notranslate nohighlight">\(G[S]\)</span> is a subgraph consisting of a set of (user-specified) vertices <span class="math notranslate nohighlight">\(S\)</span> and all edges that have both endpoints in <span class="math notranslate nohighlight">\(S\)</span>. Induced subgraphs provide a very convenient way to focus on only the relevant structures of a graph in the context of a set of vertices (which generally share some useful properties you are interested in analyzing).</p>
+<p>Neo4j implicitly (and efficiently) constructs induced subgraphs when a query performs a match on multiple nodes unless you tell it to do otherwise. This feature simplifies data extraction tasks used for studying local topologies and building data structures used for machine learning.</p>
+<p>This feature is usually only beneficial, and it will make your life easier when working with ComptoxAI’s graph database, but users need to be aware of the potential risks this can lead to. One of these is related to performance - if you are only interested in studying the vertices returned by a certain query, and the induced subgraph on those vertices is densely connected, the size of the query response can grow extremely rapidly. If you only need to store the nodes, use <cite>RETURN n</cite>, where <cite>n</cite> is a variable pointing to a node.</p>
+</div>
 </div>
 </div>
 
@@ -135,7 +140,7 @@
       &copy;2020, Joseph D. Romano.
       
       |
-      <a href="../_sources/api/index.rst.txt"
+      <a href="../_sources/guide/graph_concepts.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
