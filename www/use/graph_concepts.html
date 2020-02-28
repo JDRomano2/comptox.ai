@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+    <title>Graphs &mdash; ComptoxAI 0.1a documentation</title>
+  
+
+
+
+  <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+<script src="https://use.fontawesome.com/04f6e4e6fe.js"></script>
+
+
+<link rel="stylesheet" href="../_static/css/vendor/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="../_static/css/custom.css" type="text/css" /> 
+</head>
+
+<!-- see: https://stackoverflow.com/a/27704409/1730417 -->
+<body id="bootstrap-overrides">
+  <header class="fixed-top">
+  <nav class="navbar navbar-expand-md navbar-light">
+    <a href="../index.html" class="navbar-brand" id="logo">ComptoxAI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="../install.html" class="nav-link">Install</a></li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Guide</a></li>
+        <li class="nav-item"><a href="../api/index.html" class="nav-link">API Docs</a></li>
+        <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <span class="navbar-text">
+        <a href="https://github.com/jdromano2/comptox_ai" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+      </span>
+    </div>
+  </nav>
+</header>
+    <div class="d-flex" id="page-wrapper">
+      <div id="page-content-wrapper">
+        <div class="page-content container-fluid body px-md-3" role="main">
+          
+  <div class="section" id="module-comptox_ai.doc.graph_concepts">
+<span id="graphs"></span><h1>Graphs<a class="headerlink" href="#module-comptox_ai.doc.graph_concepts" title="Permalink to this headline">¶</a></h1>
+<p>Graph databases have many advantages - both theoretical and practical - over traditional relational databases. Many good descriptions of graph database concepts are available on the internet, but users will probably find it helpful to hear this information from the perspective of biomedical knowledge representation and AI (and, of course, ComptoxAI in particular).</p>
+<div class="section" id="behavior-of-neo4j">
+<h2>Behavior of Neo4j<a class="headerlink" href="#behavior-of-neo4j" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="induced-subgraphs">
+<h3>Induced Subgraphs<a class="headerlink" href="#induced-subgraphs" title="Permalink to this headline">¶</a></h3>
+<p>An induced subgraph <span class="math notranslate nohighlight">\(G[S]\)</span> is a subgraph consisting of a set of (user-specified) vertices <span class="math notranslate nohighlight">\(S\)</span> and all edges that have both endpoints in <span class="math notranslate nohighlight">\(S\)</span>. Induced subgraphs provide a very convenient way to focus on only the relevant structures of a graph in the context of a set of vertices (which generally share some useful properties you are interested in analyzing).</p>
+<p>Neo4j implicitly (and efficiently) constructs induced subgraphs when a query performs a match on multiple nodes unless you tell it to do otherwise. This feature simplifies data extraction tasks used for studying local topologies and building data structures used for machine learning.</p>
+<p>This feature is usually only beneficial, and it will make your life easier when working with ComptoxAI’s graph database, but users need to be aware of the potential risks this can lead to. One of these is related to performance - if you are only interested in studying the vertices returned by a certain query, and the induced subgraph on those vertices is densely connected, the size of the query response can grow extremely rapidly. If you only need to store the nodes, use <cite>RETURN n</cite>, where <cite>n</cite> is a variable pointing to a node.</p>
+</div>
+</div>
+</div>
+
+
+
+          <footer class="container-fluid">
+  © 2020 by Joseph D. Romano and the Computational Genetics Lab (<a href="https://tldrlegal.com/license/mit-license" target="_blank">MIT License</a>)
+</footer>
+        </div>
+      </div>
+    </div>
+  
+</body>

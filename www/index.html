@@ -1,131 +1,72 @@
+
 <!DOCTYPE html>
-<html>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
 
-  <title>ComptoxAI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
 
-  <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
+    <title>ComptoxAI: A modern toolkit for AI research in computational toxicology &mdash; ComptoxAI 0.1a documentation</title>
+  
 
-  <!-- favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="_includes/assets/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
 
-  <script src="https://use.fontawesome.com/04f6e4e6fe.js"></script>
 
-  <style>
-  html,
-body {
-    height: 100%;
-    margin: 0;
-}
+  <link rel="shortcut icon" href="_static/favicon.ico"/>
 
-header {
-    font-family: 'Roboto', sans-serif;
-    padding-bottom: 50px;
-}
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Roboto', sans-serif;
-}
 
-p {
-    font-family: 'Open Sans', sans-serif;
-}
+<script src="https://use.fontawesome.com/04f6e4e6fe.js"></script>
 
-img {
-    max-width: 100%;
-}
 
-pre {
-    display: block;
-    background-color: #fafafa;
-    padding: 9.5px;
-    margin: 0 0 10px;
-    font-size: 13px;
-    line-height: 1.428571429;
-    color: #333;
-    word-break: break-all;
-    word-wrap: break-word;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.navbar-brand {
-    padding-bottom: 7px;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: #226b07;
-}
-
-.wrap {
-    min-height: 85%;
-}
-
-.fa-2x {
-    font-size: 2em;
-    color: #226b07;
-}
-
-#logo {
-    color: #226b07;
-    font-weight: 600;
-}
-
-  </style>
-
+<link rel="stylesheet" href="_static/css/vendor/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/custom.css" type="text/css" /> 
 </head>
-<body>
-  <header>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a href="/" class="navbar-brand" id="logo">ComptoxAI</a>
+
+<!-- see: https://stackoverflow.com/a/27704409/1730417 -->
+<body id="bootstrap-overrides">
+  <header class="fixed-top">
+  <nav class="navbar navbar-expand-md navbar-light">
+    <a href="#" class="navbar-brand" id="logo">ComptoxAI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         
-        <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="/use.html" class="nav-link">Use</a></li>
-        <li class="nav-item"><a href="/docs/" class="nav-link">API Docs</a></li>
-        <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="install.html" class="nav-link">Install</a></li>
+        <li class="nav-item"><a href="use/index.html" class="nav-link">Guide</a></li>
+        <li class="nav-item"><a href="api/index.html" class="nav-link">API Docs</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
-    </div>
-    <div class="nav navbar-nav navbar-right">
-      <ul class="navbar-nav navbar-right">
-        <li class="navbar-brand" style="color:slategrey;"><a href="https://github.com/jdromano2/comptox_ai" target="_blank"><i class="fa fa-github-square fa-2x"></i></a></li>
-      </ul>
+      <span class="navbar-text">
+        <a href="https://github.com/jdromano2/comptox_ai" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+      </span>
     </div>
   </nav>
 </header>
+<div class="container pt-3" id="page-wrapper" role="main">
 
-  <div class="container wrap">
-    <main role="main" class="flex-shrink-0">
-      
-  <div id="page-content">
-    <div id="container">
-      <h2 class="pb-2">ComptoxAI: A modern toolkit for AI research in computational toxicology</h2>
-      
-  <!-- any important alerts to display first -->
-  <section>
-    <div class="alert alert-primary">
+  <div class="row">
+    <h2 class="pb-2">ComptoxAI: A modern toolkit for AI research in computational toxicology</h2>
+  </div>
+
+  <div class="row">
+    <div class="container-fluid alert alert-primary">
       <p>Stay tuned while we finish building this site!</p>
       <hr>
-      <p class="mb-0">In the meantime, check out ComptoxAI's readme on GitHub: <a href="https://github.com/JDRomano2/comptox_ai/blob/master/README.md">github.com/JDRomano2/comptox_ai</a>.</p>
+      <p class='mb-0'>In the meantime, check out our code repository on GitHub: <a href="https://github.com/JDRomano2/comptox_ai">github.com/JDRomano2/comptox_ai</a>.</p>
     </div>
-  </section>
+  </div>
 
-  <!-- image gallery -->
-  <section>
-    <img src="_includes/assets/img/ontology.png" alt="ComptoxAI ontology" />
-  </section>
+  <div class="row">
+    <img src="_static/img/ontology.png" alt="ComptoxAI ontology" id="ont-graph" />
+  </div>
 
-  <!-- tl;dr for ComptoxAI -->
-  <section>
+  <div class="row">
     <h4>ComptoxAI provides:</h4>
     <ul>
       <li>A <b><a href="https://neo4j.com/blog/why-graph-databases-are-the-future/" target="_blank">graph database</a></b> for storing and retrieving data used in computational toxicology research (implemented in <a href="https://neo4j.com" target="_blank">Neo4j</a>)</li>
@@ -134,19 +75,13 @@ pre {
       <li><b>This website</b>, which includes a blog (coming soon) and showcase of research resulting from ComptoxAI</li>
       <li>(Coming soon:) A gallery of <b>machine learning models</b> for making scientific discovery from ComptoxAI data</li>
     </ul>
-  </section>
-
-      <hr/>
-    </div>
   </div>
 
-    </main>
-  </div>
+  <hr />
 
-  <footer class="footer mt-auto py-3 bg-light">
-  <div class="container">
-    <span class="text-muted">ComptoxAI is hosted by the <a href="http://epistasis.org" target="_blank">Computational Genetics Lab</a> at the University of Pennsylvania, and is maintained by <a href="http://jdr.bio" target="_blank">Joseph D. Romano</a>.</span>
-  </div>
+  <footer class="container-fluid">
+  © 2020 by Joseph D. Romano and the Computational Genetics Lab (<a href="https://tldrlegal.com/license/mit-license" target="_blank">MIT License</a>)
 </footer>
+</div>
+
 </body>
-</html>

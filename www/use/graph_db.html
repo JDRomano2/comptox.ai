@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+    <title>Graph Databases &mdash; ComptoxAI 0.1a documentation</title>
+  
+
+
+
+  <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+<script src="https://use.fontawesome.com/04f6e4e6fe.js"></script>
+
+
+<link rel="stylesheet" href="../_static/css/vendor/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="../_static/css/custom.css" type="text/css" /> 
+</head>
+
+<!-- see: https://stackoverflow.com/a/27704409/1730417 -->
+<body id="bootstrap-overrides">
+  <header class="fixed-top">
+  <nav class="navbar navbar-expand-md navbar-light">
+    <a href="../index.html" class="navbar-brand" id="logo">ComptoxAI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="../install.html" class="nav-link">Install</a></li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Guide</a></li>
+        <li class="nav-item"><a href="../api/index.html" class="nav-link">API Docs</a></li>
+        <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <span class="navbar-text">
+        <a href="https://github.com/jdromano2/comptox_ai" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+      </span>
+    </div>
+  </nav>
+</header>
+    <div class="d-flex" id="page-wrapper">
+      <div id="page-content-wrapper">
+        <div class="page-content container-fluid body px-md-3" role="main">
+          
+  <p>:: _graph_db:</p>
+<div class="section" id="module-comptox_ai.doc.graph_db">
+<span id="graph-databases"></span><h1>Graph Databases<a class="headerlink" href="#module-comptox_ai.doc.graph_db" title="Permalink to this headline">¶</a></h1>
+<p>ComptoxAI’s graph database is meant to completely replace traditional
+relational databases used for computational toxicology data. Rather
+than storing data in tables with keys linking rows of one table to
+rows of another, a graph database stores entities as <strong>nodes</strong> and the
+relationships that join entities as <strong>edges</strong>, resulting in a
+network-like data structure known to computer scientists as a
+<strong>graph</strong>.</p>
+<div class="section" id="building-and-installing-the-database-locally">
+<h2>Building and installing the database locally<a class="headerlink" href="#building-and-installing-the-database-locally" title="Permalink to this headline">¶</a></h2>
+<p><em>(These instructions are incomplete - stay tuned for more info)</em></p>
+<p>First, make sure you have the prerequisites installed.</p>
+<p>Building the complete database consists of 4 steps:</p>
+<ol class="arabic simple">
+<li><p>Populating the ComptoxAI ontology with individuals for the core
+graph node types.</p></li>
+<li><p>Importing the OWL file into Neo4j.</p></li>
+<li><p>Cleaning up the imported data.</p></li>
+<li><p>Merging other data into the graph database from external sources.</p></li>
+</ol>
+<p>We’ll walk through these steps individually:</p>
+<div class="section" id="populating-the-ontology-with-individuals">
+<h3>Populating the ontology with individuals<a class="headerlink" href="#populating-the-ontology-with-individuals" title="Permalink to this headline">¶</a></h3>
+<p>The core ontology for ComptoxAI is already provided as part of the
+main code distribution, and can be found at <code class="docutils literal notranslate"><span class="pre">data/comptox.owl</span></code>. We
+use the ontology in the graph database build process because doing so
+lets us control the consistency of node labels, data types, and
+relationship labels in the final graph database (Neo4j provides no
+out-of-box methods for doing so, which is both a strength and a
+limitation of the software). The process relies upon the following
+rough equivalencies between a populated OWL ontology and a Neo4j-style
+graph database:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>OWL Ontology</p></th>
+<th class="head"><p>Neo4j-style graph database</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ontology</p></td>
+<td><p>Graph database</p></td>
+</tr>
+<tr class="row-odd"><td><p>Class</p></td>
+<td><p>Node label</p></td>
+</tr>
+<tr class="row-even"><td><p>Individual</p></td>
+<td><p>Node</p></td>
+</tr>
+<tr class="row-odd"><td><p>Object property</p></td>
+<td><p>Relationship</p></td>
+</tr>
+<tr class="row-even"><td><p>Data property</p></td>
+<td><p>Node data</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="importing-the-ontology-into-neo4j">
+<h3>Importing the ontology into Neo4j<a class="headerlink" href="#importing-the-ontology-into-neo4j" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have the ontology (preliminarily) populated with
+individuals and object properties that will become nodes and
+relationships in the graph database, we can use utility functions from
+APOC (Neo4j’s standard library) to actually parse the OWL file and
+load individuals into the (currently empty) graph database.</p>
+</div>
+</div>
+<div class="section" id="connecting-to-our-instance-of-the-database">
+<h2>Connecting to our instance of the database<a class="headerlink" href="#connecting-to-our-instance-of-the-database" title="Permalink to this headline">¶</a></h2>
+<p>For users who don’t need (or want) to install the full copy of the
+database on their own computer, they can access a (possibly slightly
+out-of-date) version of the database hosted on our server and
+available for public use. This can be done by tweaking your
+configuration file to point to our public IP address:</p>
+<div class="admonition-hosted-database-configuration-settings admonition">
+<p class="admonition-title">Hosted database configuration settings</p>
+<p>Contents of <cite>CONFIG.cfg</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">NEO4J</span><span class="p">]</span>
+<span class="n">Username</span> <span class="o">=</span> <span class="n">neo4j</span>
+<span class="n">Password</span> <span class="o">=</span> <span class="n">neo4j</span>
+<span class="n">Hostname</span> <span class="o">=</span> <span class="n">XXX</span><span class="o">.</span><span class="n">XXX</span><span class="o">.</span><span class="n">XXX</span><span class="o">.</span><span class="n">XXX</span>  <span class="o">&lt;---</span> <span class="n">we</span><span class="s1">&#39;ll update this soon!</span>
+<span class="n">Protocol</span> <span class="o">=</span> <span class="n">bolt</span>
+<span class="n">Port</span> <span class="o">=</span> <span class="mi">7687</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="api-documentation">
+<h2>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+
+          <footer class="container-fluid">
+  © 2020 by Joseph D. Romano and the Computational Genetics Lab (<a href="https://tldrlegal.com/license/mit-license" target="_blank">MIT License</a>)
+</footer>
+        </div>
+      </div>
+    </div>
+  
+</body>

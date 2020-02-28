@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+    <title>Using ComptoxAI &mdash; ComptoxAI 0.1a documentation</title>
+  
+
+
+
+  <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+<script src="https://use.fontawesome.com/04f6e4e6fe.js"></script>
+
+
+<link rel="stylesheet" href="../_static/css/vendor/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="../_static/css/custom.css" type="text/css" /> 
+</head>
+
+<!-- see: https://stackoverflow.com/a/27704409/1730417 -->
+<body id="bootstrap-overrides">
+  <header class="fixed-top">
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a href="../index.html" class="navbar-brand" id="logo">ComptoxAI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="../install.html" class="nav-link">Install</a></li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Guide</a></li>
+        <li class="nav-item"><a href="../api/index.html" class="nav-link">API Docs</a></li>
+        <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <span class="navbar-text">
+        <a href="https://github.com/jdromano2/comptox_ai" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+      </span>
+    </div>
+  </nav>
+</header>
+    <div class="d-flex" id="page-wrapper">
+      <div id="page-content-wrapper">
+        <div class="page-content container-fluid body px-md-3" role="main">
+          
+  <div class="section" id="module-comptox_ai.doc.usage">
+<span id="using-comptoxai"></span><h1>Using ComptoxAI<a class="headerlink" href="#module-comptox_ai.doc.usage" title="Permalink to this headline">¶</a></h1>
+<p>ComptoxAI’s python package is a toolkit for interacting with and manipulating
+ComptoxAI data. The package has two main goals:</p>
+<ol class="arabic simple">
+<li><p>Make it easier for users to load, query, and interact with graph data in
+various formats.</p></li>
+<li><p>Provide a simplified interface to AI tools and machine learning models
+intended to be used on ComptoxAI.</p></li>
+</ol>
+<p>This section of the documentation shows a brief, simplified workflow that
+illustrates many of the major features of the Python package.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page assumes you have already installed ComptoxAI, built the Neo4j
+database, and created a configuration file. If you have yet to do these
+three tasks, please read the
+<a class="reference internal" href="installing.html#guide-installing"><span class="std std-ref">installation instructions</span></a>.</p>
+</div>
+<div class="section" id="usage-example">
+<h2>Usage example<a class="headerlink" href="#usage-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connect-to-neo4j">
+<h3>Connect to Neo4j<a class="headerlink" href="#connect-to-neo4j" title="Permalink to this headline">¶</a></h3>
+<p>Assuming ComptoxAI’s graph database is installed, populated, and correctly
+configured, it’s easy to connect to the database from Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">comptox_ai.graph</span> <span class="kn">import</span> <span class="n">Graph</span>
+
+<span class="c1"># The &quot;config_file&quot; attribute can be omitted if yours is installed in the</span>
+<span class="c1"># default location</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">Graph</span><span class="o">.</span><span class="n">from_neo4j</span><span class="p">(</span><span class="n">config_file</span><span class="o">=</span><span class="s2">&quot;./CONFIG.cfg&quot;</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="convert-the-data-to-a-different-format">
+<h3>Convert the data to a different format<a class="headerlink" href="#convert-the-data-to-a-different-format" title="Permalink to this headline">¶</a></h3>
+<p>Neo4j is incredibly powerful for many use cases, but it doesn’t provide the
+most flexible interface for analyzing graph structure or building machine
+learning algorithms. To that end, we’ll convert the data to NetworkX:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="s1">&#39;networkx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>However, you should always be aware of the capabilities of the formats you are
+converting from/to. Not every format can represent all aspects of the graph
+database, and certain methods will fail when you try to run them on instances
+of <cite>comptox_ai.Graph</cite> in certain formats. For example, there is currently no
+way to access node features for heterogeneous graphs when the graph is in
+<code class="docutils literal notranslate"><span class="pre">'graphsage'</span></code> format - you would need to convert it to a format like DGL to
+make a command like <code class="docutils literal notranslate"><span class="pre">G.node_features</span></code> work without raising an error.</p>
+</div>
+<div class="section" id="check-basic-graph-metrics">
+<h3>Check basic graph metrics<a class="headerlink" href="#check-basic-graph-metrics" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+
+          <footer class="container-fluid">
+  © 2020 by Joseph D. Romano (<a href="https://tldrlegal.com/license/mit-license" target="_blank">MIT License</a>)
+</footer>
+        </div>
+      </div>
+    </div>
+  
+</body>

@@ -9,7 +9,7 @@
 
   
 
-    <title>Contact Us &mdash; ComptoxAI 0.1a documentation</title>
+    <title>Search &mdash; ComptoxAI 0.1a documentation</title>
   
 
 
@@ -22,7 +22,10 @@
 
 
 <link rel="stylesheet" href="_static/css/vendor/bootstrap.min.css" type="text/css" />
-<link rel="stylesheet" href="_static/css/custom.css" type="text/css" /> 
+<link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <script type="text/javascript" src="searchindex.js" defer></script>
+   
+
 </head>
 
 <!-- see: https://stackoverflow.com/a/27704409/1730417 -->
@@ -40,7 +43,7 @@
         <li class="nav-item"><a href="install.html" class="nav-link">Install</a></li>
         <li class="nav-item"><a href="use/index.html" class="nav-link">Guide</a></li>
         <li class="nav-item"><a href="api/index.html" class="nav-link">API Docs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
       <span class="navbar-text">
         <a href="https://github.com/jdromano2/comptox_ai" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
@@ -52,14 +55,29 @@
       <div id="page-content-wrapper">
         <div class="page-content container-fluid body px-md-3" role="main">
           
-  <div class="section" id="contact-us">
-<span id="contact"></span><h1>Contact Us<a class="headerlink" href="#contact-us" title="Permalink to this headline">¶</a></h1>
-<p>This wesite is maintained by Joseph D. Romano, PhD. He can be reached via email
-at <strong>joseph.romano [at] pennmedicine.upenn.edu</strong>.</p>
-<p>Similar projects can be found at <a class="reference external" href="http://jdr.bio">Dr. Romano’s personal website</a>, or at the University of Pennsylvania’s <a class="reference external" href="http://epistasis.org">Computational
-Genetics Lab home page</a>.</p>
-</div>
-
+  <h1 id="search-documentation">Search</h1>
+  <div id="fallback" class="admonition warning">
+  <script type="text/javascript">$('#fallback').hide();</script>
+  <p>
+    Please activate JavaScript to enable the search
+    functionality.
+  </p>
+  </div>
+  <p>
+    From here you can search these documents. Enter your search
+    words into the box below and click "search". Note that the search
+    function will automatically search for all of the words. Pages
+    containing fewer words won't appear in the result list.
+  </p>
+  <form action="" method="get">
+    <input type="text" name="q" aria-labelledby="search-documentation" value="" />
+    <input type="submit" value="search" />
+    <span id="search-progress" style="padding-left: 10px"></span>
+  </form>
+  
+  <div id="search-results">
+  
+  </div>
 
 
           <footer class="container-fluid">

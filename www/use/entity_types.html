@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+    <title>Entity Types in ComptoxAI &mdash; ComptoxAI 0.1a documentation</title>
+  
+
+
+
+  <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+<script src="https://use.fontawesome.com/04f6e4e6fe.js"></script>
+
+
+<link rel="stylesheet" href="../_static/css/vendor/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="../_static/css/custom.css" type="text/css" /> 
+</head>
+
+<!-- see: https://stackoverflow.com/a/27704409/1730417 -->
+<body id="bootstrap-overrides">
+  <header class="fixed-top">
+  <nav class="navbar navbar-expand-md navbar-light">
+    <a href="../index.html" class="navbar-brand" id="logo">ComptoxAI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="../install.html" class="nav-link">Install</a></li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Guide</a></li>
+        <li class="nav-item"><a href="../api/index.html" class="nav-link">API Docs</a></li>
+        <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <span class="navbar-text">
+        <a href="https://github.com/jdromano2/comptox_ai" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+      </span>
+    </div>
+  </nav>
+</header>
+    <div class="d-flex" id="page-wrapper">
+      <div id="page-content-wrapper">
+        <div class="page-content container-fluid body px-md-3" role="main">
+          
+  <div class="section" id="module-comptox_ai.doc.entity_types">
+<span id="entity-types-in-comptoxai"></span><h1>Entity Types in ComptoxAI<a class="headerlink" href="#module-comptox_ai.doc.entity_types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="entity-types">
+<h2>Entity Types<a class="headerlink" href="#entity-types" title="Permalink to this headline">¶</a></h2>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="databases.html#guide-databases"><span class="std std-ref">Source databases</span></a></p>
+</div>
+<div class="section" id="node-types">
+<h3>Node types<a class="headerlink" href="#node-types" title="Permalink to this headline">¶</a></h3>
+<p>In Neo4j nomenclature, these are referred to as “node labels”.</p>
+<div class="section" id="chemicals">
+<h4>Chemicals<a class="headerlink" href="#chemicals" title="Permalink to this headline">¶</a></h4>
+<p>Any chemical substance. Special emphasis is given to xenobiotic chemicals.</p>
+<p>Metadata:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Data element</p></td>
+<td><p>Data type</p></td>
+<td><p>Example</p></td>
+</tr>
+<tr class="row-even"><td><p>commonName</p></td>
+<td><p>string</p></td>
+<td><p>“Gentamicin</p></td>
+</tr>
+<tr class="row-odd"><td><p>chemicalIsDrug</p></td>
+<td><p>bool</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>xrefCasRN</p></td>
+<td><p>string</p></td>
+<td><p>“1403-66-3”</p></td>
+</tr>
+<tr class="row-odd"><td><p>xrefDrugbank</p></td>
+<td><p>string</p></td>
+<td><p>“DB00798”</p></td>
+</tr>
+</tbody>
+</table>
+<p>Chemical features:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 26%" />
+<col style="width: 40%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Feature name</p></td>
+<td><p>Data type</p></td>
+<td><p>Dimensionality</p></td>
+</tr>
+<tr class="row-even"><td><p>SMILEs</p></td>
+<td><p>String</p></td>
+<td><p>n/a</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="genes">
+<h4>Genes<a class="headerlink" href="#genes" title="Permalink to this headline">¶</a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 32%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data element</p></th>
+<th class="head"><p>Data type</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="diseases">
+<h4>Diseases<a class="headerlink" href="#diseases" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="aops">
+<h4>AOPs<a class="headerlink" href="#aops" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="relationship-types">
+<h3>Relationship types<a class="headerlink" href="#relationship-types" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+
+
+          <footer class="container-fluid">
+  © 2020 by Joseph D. Romano and the Computational Genetics Lab (<a href="https://tldrlegal.com/license/mit-license" target="_blank">MIT License</a>)
+</footer>
+        </div>
+      </div>
+    </div>
+  
+</body>

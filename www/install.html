@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+    <title>Installing and Building &mdash; ComptoxAI 0.1a documentation</title>
+  
+
+
+
+  <link rel="shortcut icon" href="_static/favicon.ico"/>
+
+
+
+<script src="https://use.fontawesome.com/04f6e4e6fe.js"></script>
+
+
+<link rel="stylesheet" href="_static/css/vendor/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/custom.css" type="text/css" /> 
+</head>
+
+<!-- see: https://stackoverflow.com/a/27704409/1730417 -->
+<body id="bootstrap-overrides">
+  <header class="fixed-top">
+  <nav class="navbar navbar-expand-md navbar-light">
+    <a href="index.html" class="navbar-brand" id="logo">ComptoxAI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Install</a></li>
+        <li class="nav-item"><a href="use/index.html" class="nav-link">Guide</a></li>
+        <li class="nav-item"><a href="api/index.html" class="nav-link">API Docs</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <span class="navbar-text">
+        <a href="https://github.com/jdromano2/comptox_ai" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+      </span>
+    </div>
+  </nav>
+</header>
+    <div class="d-flex" id="page-wrapper">
+      <div id="page-content-wrapper">
+        <div class="page-content container-fluid body px-md-3" role="main">
+          
+  <div class="section" id="installing-and-building">
+<span id="install"></span><h1>Installing and Building<a class="headerlink" href="#installing-and-building" title="Permalink to this headline">¶</a></h1>
+<p>This guide is meant to get new users up and running with a complete
+installation of ComptoxAI, including the Python package and the graph database
+populated from the original data sources.</p>
+<p>Users also have the option to install a “slimmed down” version of ComptoxAI
+without the graph database. It’s important to keep in mind, however, that many
+features won’t be available without the database installed and running. A
+future release will include the option to connect to a remote version of the
+database; we will update this guide accordingly when this is implemented.</p>
+<div class="section" id="installing-the-comptox-ai-python-package">
+<h2>Installing the <code class="docutils literal notranslate"><span class="pre">comptox_ai</span></code> Python package<a class="headerlink" href="#installing-the-comptox-ai-python-package" title="Permalink to this headline">¶</a></h2>
+<p>For now, the easiest way to install the <code class="docutils literal notranslate"><span class="pre">comptox_ai</span></code> package is by cloning
+the repository from GitHub and running the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> script from the
+repository’s root directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/JDRomano2/comptox_ai
+$ cd comptox_ai
+$ python setup.py
+</pre></div>
+</div>
+<p>Rather than running the <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> script directly, you can also install
+using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/JDRomano2/comptox_ai
+$ cd comptox_ai
+$ pip install .
+</pre></div>
+</div>
+<p>If you run into errors with package dependencies, you can force <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install the prerequisites by navigating to the repository’s root and running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="downloading-the-source-data-files">
+<h2>Downloading the source data files<a class="headerlink" href="#downloading-the-source-data-files" title="Permalink to this headline">¶</a></h2>
+<p>All of the data in ComptoxAI’s graph database come from publicly-available
+sources - usually domain-specific public databases released and maintained by
+academic research groups or the US federal government. In order to build the
+graph database locally, you will need to download the data files from their
+original locations and put them in a folder where ComptoxAI’s build utilities
+known to look for them.</p>
+<div class="section" id="preparing-the-root-data-directory">
+<h3>Preparing the root data directory<a class="headerlink" href="#preparing-the-root-data-directory" title="Permalink to this headline">¶</a></h3>
+<p>First, create a folder on your computer that will contain all of the source
+data. For example, on a Unix system:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd ~
+$ mkdir -p data/comptox_ai
+$ cd data/comptox_ai
+</pre></div>
+</div>
+<p>Make sure that you have read and write access to this directory!</p>
+</div>
+<div class="section" id="preparing-database-specific-subdirectories">
+<h3>Preparing database-specific subdirectories<a class="headerlink" href="#preparing-database-specific-subdirectories" title="Permalink to this headline">¶</a></h3>
+<p>Create a subdirectory within the new root data directory for each of the source
+databases. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ mkdir epa
+$ mkdir hetionet
+...
+</pre></div>
+</div>
+<p>ComptoxAI’s build scripts will look for the source databases in directories
+with the following names:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Database</p></th>
+<th class="head"><p>Directory name (case-sensitive)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hetionet</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hetionet/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Comparative Toxicogenomics Database</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ctd/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>EPA CompTox dashboard</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">epa/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>DrugBank</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">drugbank/</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div>
+<div class="section" id="source-data-files">
+<h3>Source Data Files<a class="headerlink" href="#source-data-files" title="Permalink to this headline">¶</a></h3>
+<p>Place the following files into their corresponding directories. We will try to
+keep the page where the files can be found up-to-date, but the source database
+maintainers may change these at any time. If you notice an error, please let us
+know by <a class="reference external" href="https://github.com/JDRomano2/comptox_ai/issues">filing an Issue on GitHub</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 54%" />
+<col style="width: 30%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Database</p></th>
+<th class="head"><p>Download Page</p></th>
+<th class="head"><p>Filename</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hetionet</p></td>
+<td><p><a class="reference external" href="https://github.com/hetio/hetionet/tree/master/hetnet/tsv">https://github.com/hetio/hetionet/tree/master/hetnet/tsv</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hetionet-v1.0-edges.sif.gz</span></code>
+<code class="docutils literal notranslate"><span class="pre">hetionet-v1.0-nodes.tsv</span></code></p></td>
+<td><p>Unzip</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="setting-up-and-preparing-neo4j">
+<h2>Setting up and preparing Neo4j<a class="headerlink" href="#setting-up-and-preparing-neo4j" title="Permalink to this headline">¶</a></h2>
+<p>We recommend <a class="reference external" href="https://neo4j.com/download/">Neo4j Desktop</a> for most users, as
+it runs with minimal headaches and is self-contained. More advanced users can
+opt to download <a class="reference external" href="https://neo4j.com/download-center/#community">Neo4j Community</a> if they like the extra control
+it provides over your server setup. We don’t officially support any particular
+version of Neo4j, but for reference, the database is developed and tested on
+Neo4j versions 3.5.6 and greater.</p>
+<p>When you have downloaded and installed Neo4j Desktop, create a new Project and
+name it “ComptoxAI”. Inside this project, choose “Add Graph”, then “Create a
+Local Graph”. Name the graph <code class="docutils literal notranslate"><span class="pre">ComptoxAI</span></code>, and set a password that you will
+remember. We recommend that you avoid using the password <code class="docutils literal notranslate"><span class="pre">neo4j</span></code>, because
+some of the database browser applications bundled with Neo4j Desktop have a
+tendancy to complain when you do so (the application tries to enforce some
+degree of security). Choose “Create”, and then click the “Start” button once
+the graph has finished being created. After a few moments, you will see the
+status indicator for the graph turn from yellow to green, and it will say
+“Active”. You now have an empty graph database to use!</p>
+<p>You will now need to install 3 (free) Neo4j plugins that provide important
+utilities leveraged by ComptoxAI. The first two can be installed simply by
+clicking the “Add Plugin” button on the Project page in Neo4j Desktop:</p>
+<ul class="simple">
+<li><p>APOC</p></li>
+<li><p>GRAPH ALGORITHMS</p></li>
+</ul>
+<p>Click the “Install” button beneath each of these plugins’ names, choosing
+“Install and Restart” when prompted. Note that, after installing the first
+plugin, you will have to wait a short time for the database to restart before
+you can choose the Install button for the second one.</p>
+<p>The third plugin - NSMNTX - needs to be installed manually. The instructions
+for doing so can be found <a class="reference external" href="https://neo4j.com/docs/labs/nsmntx/current/install/">on Neo4j Labs</a>, but they don’t provide
+detailed steps for users with Neo4j Desktop. In short, you should do the
+following:</p>
+<p>#. Download the most recent <code class="docutils literal notranslate"><span class="pre">.jar</span></code> file from the <a class="reference external" href="https://github.com/neo4j-labs/neosemantics/releases">Github Releases page</a>. Make sure that the
+version you download is compatible with the version of Neo4j you chose when you
+created the ComptoxAI graph.</p>
+<ol class="arabic simple">
+<li><p>In Neo4j Desktop, click “Manage” in the graph status panel. Next to
+“Open Folder”, click the down arrow, and then “Plugins”.</p></li>
+<li><p>Move the NSMNTX <code class="docutils literal notranslate"><span class="pre">.jar</span></code> file to the plugins folder.</p></li>
+<li><p>Back in Neo4j Desktop, click the “Settings” tab, and add a line to the bottom containing the following::
+<code class="docutils literal notranslate"><span class="pre">dbms.unmanaged_extension_classes=semantics.extension=/rdf</span></code></p></li>
+<li><p>Go back to the Project page and restart the server.</p></li>
+</ol>
+</div>
+<div class="section" id="building-the-database-and-populating-neo4j">
+<h2>Building the database and populating Neo4j<a class="headerlink" href="#building-the-database-and-populating-neo4j" title="Permalink to this headline">¶</a></h2>
+<p>Before you can load the RDF-formatted data into the graph database, you need to
+create an index (otherwise, you will receive an error when you run the import
+command).</p>
+</div>
+<div class="section" id="testing-comptoxai">
+<h2>Testing ComptoxAI<a class="headerlink" href="#testing-comptoxai" title="Permalink to this headline">¶</a></h2>
+<p>ComptoxAI’s complete test suite is still under development. Prior to releasing
+v1.0 we will write a full suite of tests, and this guide will be updated
+accordingly.</p>
+</div>
+</div>
+
+
+
+          <footer class="container-fluid">
+  © 2020 by Joseph D. Romano and the Computational Genetics Lab (<a href="https://tldrlegal.com/license/mit-license" target="_blank">MIT License</a>)
+</footer>
+        </div>
+      </div>
+    </div>
+  
+</body>

@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+
+<head>
+  <meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+    <title>Data Schema &mdash; ComptoxAI 0.1a documentation</title>
+  
+
+
+
+  <link rel="shortcut icon" href="../_static/favicon.ico"/>
+
+
+
+<script src="https://use.fontawesome.com/04f6e4e6fe.js"></script>
+
+
+<link rel="stylesheet" href="../_static/css/vendor/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="../_static/css/custom.css" type="text/css" /> 
+</head>
+
+<!-- see: https://stackoverflow.com/a/27704409/1730417 -->
+<body id="bootstrap-overrides">
+  <header class="fixed-top">
+  <nav class="navbar navbar-expand-md navbar-light">
+    <a href="../index.html" class="navbar-brand" id="logo">ComptoxAI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+        <li class="nav-item"><a href="../about.html" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="../install.html" class="nav-link">Install</a></li>
+        <li class="nav-item"><a href="index.html" class="nav-link">Guide</a></li>
+        <li class="nav-item"><a href="../api/index.html" class="nav-link">API Docs</a></li>
+        <li class="nav-item"><a href="../contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <span class="navbar-text">
+        <a href="https://github.com/jdromano2/comptox_ai" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+      </span>
+    </div>
+  </nav>
+</header>
+    <div class="d-flex" id="page-wrapper">
+      <div id="page-content-wrapper">
+        <div class="page-content container-fluid body px-md-3" role="main">
+          
+  <div class="section" id="module-comptox_ai.doc.data_schema">
+<span id="data-schema"></span><h1>Data Schema<a class="headerlink" href="#module-comptox_ai.doc.data_schema" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="graph-data-formats">
+<h2>Graph data formats<a class="headerlink" href="#graph-data-formats" title="Permalink to this headline">¶</a></h2>
+<p>ComptoxAI manages the interchange of data in a number of disparate formats. To
+do this dynamically, its critically important to ensure that all of the
+datatype handlers write to and read from a well-specified intermediate format.</p>
+<p>Here, we describe the (Python-centric) specification for this format.</p>
+<div class="topic">
+<p class="topic-title first">What’s up with the <code class="docutils literal notranslate"><span class="pre">ns0__</span></code> and <code class="docutils literal notranslate"><span class="pre">owl__</span></code> prefixes?</p>
+<p>These prefixes indicate the namespace that each entity in ComptoxAI belongs
+to. They can be used to determine if an entity (e.g., a node, a relationship,
+a label) was defined exclusively for use in ComptoxAI, or if it is an
+externally defined entity being ‘reused’ by ComptoxAI.</p>
+</div>
+<div class="section" id="graph">
+<h3>Graph<a class="headerlink" href="#graph" title="Permalink to this headline">¶</a></h3>
+<p>The graph object is a wrapper around any descendant of
+comptox_ai.graph.GraphDataMixin. It provides a consistent interface for
+accessing members of the actual GraphDataMixin objects. The graph itself is
+stored in the private attribute _data, which should only be accessed directly
+by experienced users who aren’t afraid to potentially screw up their data.</p>
+<p>See the API reference for a complete description of the methods provided by
+the comptox_ai.Graph class.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../api/graph.html#comptox_ai.graph.Graph" title="comptox_ai.graph.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">comptox_ai.graph.Graph</span></code></a></p>
+</div>
+</div>
+<div class="section" id="nodes">
+<h3>Nodes<a class="headerlink" href="#nodes" title="Permalink to this headline">¶</a></h3>
+<p>Nodes are 3-tuples, where the first element is an integer node ID, the
+second element is a node label, and the third element is a dictionary of node
+properties:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;ns0__Gene&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;ns0__commonName&#39;</span><span class="p">:</span> <span class="s1">&#39;SCARA3&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>The node ID is automatically assigned by Neo4j upon node creation. If the data
+are created in another format prior to loading in Neo4j, any (unique) value may
+be used in its stead. If the data are subsequently loaded and then retrieved
+from Neo4j, the newly assigned Neo4j node ID will take the place of the old
+placeholder.</p>
+<p>The properties dictionary may be left empty, but an effort should be made to
+populate node properties with whichever data are available and defined for the
+current node type.</p>
+</div>
+<div class="section" id="relationships">
+<h3>Relationships<a class="headerlink" href="#relationships" title="Permalink to this headline">¶</a></h3>
+<p>Relationships are 4-tuples, where the first element is the ID for the starting
+node <span class="math notranslate nohighlight">\(u\)</span>, the second element is a string relationship type, the third
+element is the ending node <span class="math notranslate nohighlight">\(v\)</span>, and the fourth element is a dictionary of
+(optional) relationship properties:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">18288</span><span class="p">,</span> <span class="s1">&#39;ns0__anatomyUpregulatesGene&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">{})</span>
+</pre></div>
+</div>
+<p>The use of relationship properties is encouraged, but ultimately less important
+to current models than node properties.</p>
+</div>
+</div>
+</div>
+
+
+
+          <footer class="container-fluid">
+  © 2020 by Joseph D. Romano and the Computational Genetics Lab (<a href="https://tldrlegal.com/license/mit-license" target="_blank">MIT License</a>)
+</footer>
+        </div>
+      </div>
+    </div>
+  
+</body>

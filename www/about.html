@@ -1,201 +1,95 @@
+
 <!DOCTYPE html>
-<html>
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
 
-  <title>ComptoxAI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
 
-  <!-- fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap" rel="stylesheet">
+    <title>About ComptoxAI &mdash; ComptoxAI 0.1a documentation</title>
+  
 
-  <!-- favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="_includes/assets/img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
 
-  <script src="https://use.fontawesome.com/04f6e4e6fe.js"></script>
 
-  <style>
-  html,
-body {
-    height: 100%;
-    margin: 0;
-}
+  <link rel="shortcut icon" href="_static/favicon.ico"/>
 
-header {
-    font-family: 'Roboto', sans-serif;
-    padding-bottom: 50px;
-}
 
-h1, h2, h3, h4, h5 {
-    font-family: 'Roboto', sans-serif;
-}
 
-p {
-    font-family: 'Open Sans', sans-serif;
-}
+<script src="https://use.fontawesome.com/04f6e4e6fe.js"></script>
 
-img {
-    max-width: 100%;
-}
 
-pre {
-    display: block;
-    background-color: #fafafa;
-    padding: 9.5px;
-    margin: 0 0 10px;
-    font-size: 13px;
-    line-height: 1.428571429;
-    color: #333;
-    word-break: break-all;
-    word-wrap: break-word;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.navbar-brand {
-    padding-bottom: 7px;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: #226b07;
-}
-
-.wrap {
-    min-height: 85%;
-}
-
-.fa-2x {
-    font-size: 2em;
-    color: #226b07;
-}
-
-#logo {
-    color: #226b07;
-    font-weight: 600;
-}
-
-  </style>
-
+<link rel="stylesheet" href="_static/css/vendor/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="_static/css/custom.css" type="text/css" /> 
 </head>
-<body>
-  <header>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a href="/" class="navbar-brand" id="logo">ComptoxAI</a>
+
+<!-- see: https://stackoverflow.com/a/27704409/1730417 -->
+<body id="bootstrap-overrides">
+  <header class="fixed-top">
+  <nav class="navbar navbar-expand-md navbar-light">
+    <a href="index.html" class="navbar-brand" id="logo">ComptoxAI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         
-        <li class="nav-item"><a href="/about.html" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="/use.html" class="nav-link">Use</a></li>
-        <li class="nav-item"><a href="/docs/" class="nav-link">API Docs</a></li>
-        <li class="nav-item"><a href="/contact.html" class="nav-link">Contact</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="install.html" class="nav-link">Install</a></li>
+        <li class="nav-item"><a href="use/index.html" class="nav-link">Guide</a></li>
+        <li class="nav-item"><a href="api/index.html" class="nav-link">API Docs</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
-    </div>
-    <div class="nav navbar-nav navbar-right">
-      <ul class="navbar-nav navbar-right">
-        <li class="navbar-brand" style="color:slategrey;"><a href="https://github.com/jdromano2/comptox_ai" target="_blank"><i class="fa fa-github-square fa-2x"></i></a></li>
-      </ul>
+      <span class="navbar-text">
+        <a href="https://github.com/jdromano2/comptox_ai" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+      </span>
     </div>
   </nav>
 </header>
+    <div class="d-flex" id="page-wrapper">
+      <div id="page-content-wrapper">
+        <div class="page-content container-fluid body px-md-3" role="main">
+          
+  <div class="section" id="about-comptoxai">
+<span id="about"></span><h1>About ComptoxAI<a class="headerlink" href="#about-comptoxai" title="Permalink to this headline">¶</a></h1>
+<p>ComptoxAI is a toolkit designed to enable AI and data science research in
+computational toxicology. Like many areas in biomedicine, environmental
+toxicology is facing a deluge of valuable data being generated in a wide array
+of modalities and levels of biological organization. However, the tools for
+interacting with these data are - at best - inconsistent, outdated, and fail to
+leverage state-of-the-art computational methods.</p>
+<p>We’re creating ComptoxAI in order to change this.</p>
+<div class="section" id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<p>ComptoxAI is developed and maintained by Joseph D. Romano, who is currently a
+postdoctoral researcher at the University of Pennsylvania in the Computational
+Genetics Lab.</p>
+</div>
+<div class="section" id="citing-comptoxai">
+<h2>Citing ComptoxAI<a class="headerlink" href="#citing-comptoxai" title="Permalink to this headline">¶</a></h2>
+<p>ComptoxAI is still under development, but we will update this page with a
+preprint citation when we have one written. In the meantime, please contact us
+if you would like to use ComptoxAI for research purposes (you don’t need our
+permission, we’d just like to make sure you’re aware of which work is evaluated
+and which isn’t at this point)!</p>
+</div>
+<div class="section" id="funding-and-acknowledgements">
+<h2>Funding and Acknowledgements<a class="headerlink" href="#funding-and-acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>ComptoxAI is supported by grant funding from the US National Institutes of
+Health, including R01-LM010098 (PI: Moore), R01-LM012601 (PI: Moore), and
+T32-ES019851 (PI: Penning).</p>
+</div>
+</div>
 
-  <div class="container wrap">
-    <main role="main" class="flex-shrink-0">
-      
-  <div id="page-content">
-    <div id="container">
-      <h2 class="pb-2">About ComptoxAI</h2>
-      
-  <div class="alert alert-info" role="alert">
-    <b>Computational toxicology</b> is the branch of toxicology that uses
-    computational modeling to predict toxic interactions in biological systems
-    and explain mechanisms of interactions that are already known.
-  </div>
 
-  <section>
-    <p>ComptoxAI is a toolkit designed to enable AI and data science research in computational toxicology. Like many disciplines in biomedicine, computational toxicology is experiencing a deluge of valuable data being generated in a wide array of modalities and levels of application. However, the tools for interacting with these data are - at best - inconsistent, outdated, and fail to leverage state-of-the-art computational methods. We intend for ComptoxAI to change this.</p>
-  </section>
-  <hr/>
 
-  <section>
-  <h2>Main components of ComptoxAI</h2>
-
-  <h4>Toxicology graph database</h4>
-  <p>
-    ComptoxAI’s graph database is meant to completely replace traditional
-    relational databases used for computational toxicology data. Rather than
-    storing data in tables - with keys linking rows of one table to rows of
-    another - a graph database stores entities as nodes and the relationships
-    that join entities as edges, resulting in a network-like data structure
-    known to computer scientists as a graph.
-  </p>
-
-  <h4>Graph database algorithms</h4>
-  <p>
-    One of the key advantages of representing data as a graph is that it makes
-    it almost trivial to implement algorithms that highlight important
-    characteristics in networks. These include:
-  </p>
-  <ul>
-    <li>Shortest path finding between two nodes</li>
-    <li>Community detection</li>
-    <li>Page rank; for identifying the most influential nodes (made famous by Google)</li>
-  </ul>
-  <p>
-    All of these are (or soon will be) implemented natively in ComptoxAI, and
-    can be as simple as running a single line of Python code.
-  </p>
-
-  <h4>ComptoxAI's ontology</h4>
-  <p>
-    An ontology is a certain type of <i>knowledge representation</i> that makes
-    it possible to define concepts in a way that enables <i>automated
-    reasoning</i> (i.e., in a way that computers can "understand"). It does this
-    by linking objects arranged in a hierarchy via descriptive non-hierarchical
-    relationships. Ontologies are a crucial component of modern artificial
-    intelligence ecosystems, and nicely complement "knowledge-free" AI methods,
-    like statistical computing and machine learning.
-  </p>
-  <p>
-    ComptoxAI includes a complete ontology that gives explicit restrictions to
-    the data stored in the graph database.
-  </p>
-
-  <h4>Machine learning / deep learning model collection</h4>
-
-  <h4>Adverse Outcome Pathway utilities</h4>
-  </section>
-  <hr/>
-
-  <section>
-    <h2>ComptoxAI behind-the-scenes</h2>
-
-    <h4>
-    </h4>
-
-    <h4>Funding sources</h4>
-    <p>
-      ComptoxAI is supported by grant funding from the US National Institutes of
-      Health, including R01-LM010098 (PI: Moore), R01-LM012601 (PI: Moore), and
-      T32-ES019851 (PI: Penning).
-    </p>
-  </section>
-
-      <hr/>
-    </div>
-  </div>
-
-    </main>
-  </div>
-
-  <footer class="footer mt-auto py-3 bg-light">
-  <div class="container">
-    <span class="text-muted">ComptoxAI is hosted by the <a href="http://epistasis.org" target="_blank">Computational Genetics Lab</a> at the University of Pennsylvania, and is maintained by <a href="http://jdr.bio" target="_blank">Joseph D. Romano</a>.</span>
-  </div>
+          <footer class="container-fluid">
+  © 2020 by Joseph D. Romano and the Computational Genetics Lab (<a href="https://tldrlegal.com/license/mit-license" target="_blank">MIT License</a>)
 </footer>
+        </div>
+      </div>
+    </div>
+  
 </body>
-</html>
